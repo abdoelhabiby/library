@@ -84,6 +84,7 @@
    $(".buttons-reset").addClass("btn btn-danger").removeClass("dt-button");
    $(".buttons-reload").addClass("btn btn-dark").removeClass("dt-button");
 
+
    $(".dt-buttons a").css({"marginRight" : "10px"});
    $(".dt-buttons").css({"marginBottom" : "10px"});
 
