@@ -7,33 +7,6 @@
 @section("content")
 
 
-@section('js')
-
-<script type="text/javascript">
-  $(function(){
-
-     $("#imgInp").change(function() {
-
-
-      if (this.files && this.files[0]) {
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-          $('.blah').attr('src', e.target.result);
-          $(".showIm").removeClass('d-none');
-        }
-
-        reader.readAsDataURL(this.files[0]);
-      }else{
-           $(".showIm").addClass('d-none');
-
-      }
-
-     });  
-   });
-</script>
-
-@endsection
 
 
 
@@ -63,7 +36,7 @@
          @endif
         
 
-        <img src="{{asset('storage/'.$book->photo)}}" class="showIm blah mt-2" width="110px" height="150px">  
+        <img src="{{asset('storage/'.$book->photo)}}"  class="showIm blah mt-2" width="130px" height="150px">  
 
     </div>   
 <!-- ---------------------------------------------------------------------------------------- -->

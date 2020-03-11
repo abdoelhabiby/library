@@ -55,4 +55,10 @@ function uploade(){
 }
 
 
+ function settings(){
+
+    return  \App\Setting::orderBy("id","desc")->first();
+ }
+
+
 ?>

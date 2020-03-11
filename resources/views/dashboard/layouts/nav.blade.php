@@ -24,6 +24,15 @@
           <span>{{trans('dashb.dashboard')}}</span></a>
       </li>
 
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item {{ request()->segment(2) == 'settings' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('setting.edit')}}">
+          <i class="fas fa-fw fa-cogs"></i>
+          <span>{{trans('dashb.settings')}}</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 

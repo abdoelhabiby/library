@@ -15,6 +15,9 @@ Route::group(['prefix' => 'eldashboard'],function(){
 		Route::resource('categories','CategoryController')->except('show');
 		Route::resource('books','BooksController')->except('show');
 
+		Route::get('settings','SettingsController@edit')->name('setting.edit');
+		Route::PUT('settings','SettingsController@update')->name('setting.update');
+
     });
 
 });

@@ -55,8 +55,16 @@ return [
 	"available"  => "متاح",
 	"yes"  => "نعم",
 	"no"  => "لا",
-	"search" => "ابحث عن كتاب....",
+	"search" => "ابحث عن ....",
 	"category" => "ألقسم",
+	"settings"  => "ألاعدادات",
+	"set_name" => "اسم البتاع",
+	"keywords"  => "الكلمات الدلاليه",
+	"maintenance_message"  => "رساله ألصيانه",
+	"status"  => "الحاله",
+	"open"  => "مفتوح",
+	"close"  => "مغلق",
+	"icon"  => "icon",
 
 
 	               
