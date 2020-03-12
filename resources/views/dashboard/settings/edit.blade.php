@@ -67,7 +67,7 @@
 <!-- ---------------------------------------------------------------------------------------- -->
    <div class="form-group">
 
-     {!! Form::label("description",trans('dashb.description')) !!}
+     {!! Form::label("description",trans('dashb.description_web')) !!}
 
       {!! Form::textarea('description',value($settings->description), ['class'=>'form-control ckeditor']) !!}
    </div>
@@ -89,7 +89,7 @@
 
 <!-- ---------------------------------------------------------------------------------------- -->
   <div class="form-group">
-       {!! Form::label('status',trans("dashb.status"), ['class' => 'awesome']) !!} 
+       {!! Form::label('status',trans("dashb.status_web"), ['class' => 'awesome']) !!} 
      
     {!! Form::select('status', ['open' => trans('dashb.open'), 'close' => trans('dashb.close')],value($settings->status) ,['class' => 'form-control' ,'placeholder' => '.....']) !!}
          @if($errors->has('status'))
