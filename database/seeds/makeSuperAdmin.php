@@ -45,13 +45,25 @@ class makeSuperAdmin extends Seeder
 
                 ];
 
+$permission_admin = [
+	            "create_category",
+                "read_category",
+                "update_category",
+                "delete_category",
+                "create_book",
+                "read_book",
+                "update_book",
+                "delete_book"
+            ];
+
 
 
      $admin = \App\Admin::create(['name' => 'super_admin','phone' => '0000000','level' => 'super_admin','password' => bcrypt(123456)]);
 
      $role_s_admin = Role::create(['name' => 'super_admin']);
 
-        Role::create(['name' => 'admin']);
+     $role_admin = Role::create(['name' => 'admin']);
+
         Role::create(['name' => 'staff']);
 
 
@@ -61,6 +73,8 @@ class makeSuperAdmin extends Seeder
       }  
 
        $role_s_admin->givePermissionTo($permission);
+
+       $role_admin->givePermissionTo($permission_admin);
 
        $admin->assignRole($role_s_admin);
 
