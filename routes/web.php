@@ -13,9 +13,13 @@ Route::group(['prefix' => 'eldashboard','middleware' => 'authAdmin:admin'],funct
 
 Config(['auth.defaults.guard' => 'admin']);
 
-	Route::get('/', function () { return view('dashboard.welcome'); })->name('Dashboard');
+
+
+
 
 	Route::group(['namespace' => 'Dashboard'],function(){
+
+	    Route::get('/',"DashboardController@index")->name('Dashboard');
 
 		Route::resource('categories','CategoryController')->except('show');
 
