@@ -59,10 +59,12 @@
 
        @endif
 
-
+  @if($settings->icon == 'setting/default.png')
+    <img src="{{asset($settings->icon)}}" id='imgSett' class="showIm blah mt-2" width="130px" height="150px">  
+  @else
      
-       <img src="{{asset('storage/'.$settings->icon)}}" id='imgSett' class="showIm blah mt-2" width="130px" height="150px">         
-
+    <img src="{{asset('storage/'.$settings->icon)}}" id='imgSett' class="showIm blah mt-2" width="130px" height="150px">         
+@endif
     </div>
 <!-- ---------------------------------------------------------------------------------------- -->
    <div class="form-group">
