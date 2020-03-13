@@ -19,6 +19,7 @@ class CreateAdminsTable extends Migration
             $table->string('phone');
             $table->string('password');
             $table->enum('level',['super_admin','admin','staff'])->default('staff');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
