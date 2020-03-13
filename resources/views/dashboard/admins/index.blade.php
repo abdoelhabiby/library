@@ -1,7 +1,7 @@
 @extends("dashboard.layouts.app")
 
 @section('title')
- {{trans('dashb.books')}}
+ {{trans('dashb.admins')}}
 @endsection
 
 @section("content")
@@ -61,7 +61,6 @@
 
 
 
-
 @push('scripts')
 
 <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.0.3/css/buttons.dataTables.min.css">
@@ -77,7 +76,7 @@
 <script type="text/javascript">
   $(function(){
 
-    var getpermission = "{{ admin()->hasPermissionTo('create_book') }}";
+    var getpermission = "{{ admin()->hasPermissionTo('create_admin') }}";
 
     if(getpermission != true){
       $(".buttons-create").addClass('d-none');

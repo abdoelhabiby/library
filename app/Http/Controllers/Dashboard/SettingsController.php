@@ -9,6 +9,8 @@ use Storage;
 
 class SettingsController extends Controller
 {
+
+
     
     public function edit(){
 

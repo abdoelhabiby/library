@@ -13,6 +13,20 @@ use App\DataTables\CategoriesDataTable;
 class CategoryController extends Controller
 {
 
+
+
+
+
+
+  public function __construct(){
+
+      $this->middleware('permission:create_category')->only(['create','store']);
+      $this->middleware('permission:read_category')->only('index');
+      $this->middleware('permission:update_category')->only(['edit','update']);
+      $this->middleware('permission:delete_category')->only('destroy');
+  }
+
+
 // -------------------------------------------------------------------------------
 
 

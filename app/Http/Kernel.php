@@ -66,5 +66,13 @@ class Kernel extends HttpKernel
         'authAdmin' => \App\Http\Middleware\checkAdmin::class,
         'redirectAdmin' => \App\Http\Middleware\redirectAdmin::class,
 
+        //----------------------------------spatie permission ----------------------------------------------
+
+         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+         'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+         'role_or_permission' => \Spatie\Permission\Middlewares\RoleOrPermissionMiddleware::class,
+
+        //--------------------------------------------------------------------------------------------------
+
     ];
 }

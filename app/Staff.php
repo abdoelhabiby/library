@@ -1,26 +1,27 @@
 <?php
 
 namespace App;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasRoles;
 
-class Admin extends Authenticatable
+class Staff extends Authenticatable
 {
-    
+
 use HasRoles;
 
-    protected $table = 'admins';
+    protected $table = 'staff';
     
     protected $fillable = [
             "name",
 			"phone",
 			"password",
-			"level",
     ];
 
       protected $hidden = [
         'password'
     ];
+
 }

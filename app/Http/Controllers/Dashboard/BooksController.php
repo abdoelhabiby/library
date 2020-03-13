@@ -12,6 +12,16 @@ class BooksController extends Controller
 {
 
 
+
+
+  public function __construct(){
+
+      $this->middleware('permission:create_book')->only(['create','store']);
+      $this->middleware('permission:read_book')->only('index');
+      $this->middleware('permission:update_book')->only(['edit','update']);
+      $this->middleware('permission:delete_book')->only('destroy');
+  }
+
 // -------------------------------------------------------------------------------
 
 

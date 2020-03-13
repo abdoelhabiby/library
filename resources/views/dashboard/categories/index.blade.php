@@ -72,3 +72,19 @@
 
 
 @endpush
+
+@section('js')
+<script type="text/javascript">
+  $(function(){
+
+    var getpermission = "{{ admin()->hasPermissionTo('create_category') }}";
+
+    if(getpermission != true){
+      $(".buttons-create").addClass('d-none');
+    }
+    
+  });
+</script>
+
+
+@endsection

@@ -18,11 +18,12 @@
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item {{ request()->segment(1) == 'dashboard' ? 'active' : ''}}">
+      <li class="nav-item {{ request()->segment(1) == 'eldashboard' ? 'active' : ''}}">
         <a class="nav-link" href="{{route('Dashboard')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>{{trans('dashb.dashboard')}}</span></a>
-      </li>
+      </li> 
+@if(admin()->hasPermissionTo('edit_setting'))
 
       <hr class="sidebar-divider my-0">
 
@@ -32,8 +33,34 @@
           <i class="fas fa-fw fa-cogs"></i>
           <span>{{trans('dashb.settings')}}</span></a>
       </li>
+@endif
+
+@if(admin()->hasPermissionTo('read_admin'))
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item {{ request()->segment(2) == 'admins' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('admins.index')}}">
+          <i class="fas fa-fw fa-users"></i>
+          <span>{{trans('dashb.admins')}}</span></a>
+      </li>
+@endif
+
+@if(admin()->hasPermissionTo('read_staff'))
+
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item {{ request()->segment(2) == 'staff' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('staff.index')}}">
+          <i class="fas fa-fw fa-users"></i>
+          <span>{{trans('dashb.staff')}}</span></a>
+      </li>
+@endif
 
       <!-- Divider -->
+ @if(admin()->hasPermissionTo('read_category'))
+     
       <hr class="sidebar-divider my-0">
 
       <!-- Heading -->
@@ -44,6 +71,8 @@
           <i class="fas fa-fw fa-list-alt"></i>
           <span>{{trans('dashb.categories')}}</span></a>
       </li>
+@endif
+ @if(admin()->hasPermissionTo('read_book'))
 
       <hr class="sidebar-divider my-0">
 
@@ -56,6 +85,7 @@
           <span>{{trans('dashb.books')}}</span></a>
       </li>
 
+@endif
 
 
 
@@ -233,7 +263,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Real Madrid</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{admin()->name}}</span>
                 <img class="img-profile rounded-circle" src="{{asset('dashboard/img/default.png')}}">
               </a>
               <!-- Dropdown - User Information -->

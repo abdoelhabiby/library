@@ -61,4 +61,10 @@ function uploade(){
  }
 
 
+function admin(){
+
+     return auth()->guard('admin')->user();
+}
+
+
 ?>

@@ -37,7 +37,7 @@ class AdminAcountController extends Controller
 
     public function logout(){
 
-       return auth()->guard('admin')->logout();
+        auth()->guard('admin')->logout();
 
        return redirect(route('admin.login'));
     }
