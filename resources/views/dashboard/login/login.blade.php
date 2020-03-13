@@ -42,7 +42,7 @@
                 <div class="p-5">
                       @if(session()->has("error_log"))
 
-                      <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>{{trans('dashb.error')}}</strong> {{session('error_log')}}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
@@ -62,18 +62,6 @@
                     @csrf
                     <div class="form-group">
 
-                      @if(session("error_log"))
-
-                                    
-
-                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                          <strong>Error</strong> {{session('error_log')}}
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>               
-
-                      @endif
 
                       <input type="name" class="form-control form-control-user @error('name') is-invalid @enderror" id="name" aria-describedby="emailHelp" placeholder="{{trans('dashb.name')}}" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
