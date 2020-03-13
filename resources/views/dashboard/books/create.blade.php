@@ -35,7 +35,7 @@
              <p class="text-danger text-uppercase">{{$errors->first('photo')}}</p>
          @endif
         
-        <img src="{{asset('storage/books/default.jpg')}}" class="showIm blah mt-2" width="110px" height="150px">  
+        <img src="{{asset('books/default.jpg')}}" class="showIm blah mt-2" width="110px" height="150px">  
 
     </div>   
 <!-- ---------------------------------------------------------------------------------------- -->

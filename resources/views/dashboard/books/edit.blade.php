@@ -26,7 +26,6 @@
              <p class="text-danger text-uppercase">{{$errors->first('title')}}</p>
          @endif
     </div>   
-
 <!-- ---------------------------------------------------------------------------------------- -->
      <div class="form-group">
        {!! Form::label('photo', trans('dashb.photo'), ['class' => 'awesome']) !!} 
@@ -35,8 +34,11 @@
              <p class="text-danger text-uppercase">{{$errors->first('photo')}}</p>
          @endif
         
-
+   @if($book->photo == 'books/default.jpg')
+        <img src="{{asset('books/default.jpg')}}" class="showIm blah mt-2" width="110px" height="150px">
+    @else
         <img src="{{asset('storage/'.$book->photo)}}"  class="showIm blah mt-2" width="130px" height="150px">  
+    @endif
 
     </div>   
 <!-- ---------------------------------------------------------------------------------------- -->

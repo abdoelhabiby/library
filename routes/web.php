@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
+// use Spatie\Permission\Models\Role;
+// use Spatie\Permission\Models\Permission;
 
 
 
@@ -49,28 +49,7 @@ Route::group(['middleware' => 'redirectAdmin:admin'],function(){
 Route::POST('eldashboard/login',"Dashboard\AdminAcountController@loginSubmit")->name('admin.loginSubmit');
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-
-
-		Route::get('makeper',function(){
-
-
-	 $role = Role::where('name','super_admin')->first();
-
-
-      	 //  $permissions = Permission::create(['name' => 'edit_setting']);
-
-
-  	     // return  $role->givePermissionTo($permissions);
-
-
-
-
-			return auth()->guard('admin')->user()->getAllPermissions();
-
-			 
-			            
-		});
