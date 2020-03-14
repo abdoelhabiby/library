@@ -69,6 +69,12 @@ class BooksController extends Controller
          }
 
   
+     if(request()->category_id == null){
+
+        $validate['category_id'] = 1;
+     }
+
+  
 
         Book::create($validate);
 

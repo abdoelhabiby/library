@@ -41,7 +41,7 @@
 <!-- ---------------------------------------------------------------------------------------- -->
  <div class="form-group">
        {!! Form::label('category_id', trans('dashb.category_id'), ['class' => 'awesome']) !!} 
-       {!! Form::select("category_id",$categories,old('category_id'),['class' => 'form-control','placeholder' => '.....']) !!}
+       {!! Form::select("category_id",$categories,old('category_id'),['class' => 'form-control']) !!}
 
     </div>   
 

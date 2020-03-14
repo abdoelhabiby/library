@@ -49,11 +49,12 @@ class StaffController extends Controller
     {
 
 
+
       
          $validate = $request->validate([
    
-              "name" => 'required|min:3|string|unique:staff',
-              "phone" => 'required|min:6|string|unique:staff',
+              "name" => 'required|min:3|string|unique:admins',
+              "phone" => 'required|min:6|string|unique:admins',
               "password" => 'required|confirmed|min:6|string',
 
             
@@ -68,6 +69,7 @@ class StaffController extends Controller
 
         $admin->assignRole('staff');
 
+
          if(request()->has('permission')){
 
                   $admin->givePermissionTo(request()->permission);
@@ -75,6 +77,7 @@ class StaffController extends Controller
 
 
          session()->flash('success',trans('dashb.success_create'));
+
 
          return redirect(route('staff.index'));
     }
@@ -110,8 +113,8 @@ class StaffController extends Controller
 
          $validate = $request->validate([
    
-              "name" => 'required|min:3|string|unique:staff,name,'.$admin->id.'id',
-              "phone" => 'required|min:6|string|unique:staff,phone,'.$admin->id.'id',
+              "name" => 'required|min:3|string|unique:admins,name,'.$admin->id.'id',
+              "phone" => 'required|min:6|string|unique:admins,phone,'.$admin->id.'id',
 
             
          ]);

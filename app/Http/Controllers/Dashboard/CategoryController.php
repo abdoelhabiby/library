@@ -111,12 +111,17 @@ class CategoryController extends Controller
     {
        $category = Category::findOrFail($id);
 
+   if($id != 1){
+
        $category->delete();
 
-      session()->flash('success',trans('dashb.success_delete'));
+       session()->flash('success',trans('dashb.success_delete'));
 
         return redirect(route('categories.index'));
+        }else{
+                  return redirect(route('categories.index'));
 
+        }
 
     }
 }

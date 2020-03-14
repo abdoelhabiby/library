@@ -32,7 +32,7 @@ class CategoriesDataTable extends DataTable
      */
     public function query()
         {
-            $admin = Category::select();
+            $admin = Category::where('id',"!=",1)->select();
 
             return $this->applyScopes($admin);
         }

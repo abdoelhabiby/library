@@ -12,6 +12,8 @@ class Setting extends Seeder
     public function run()
     {
         
-        \App\Setting::create(['name' => 'delta library','email' => "delta@deltacom"]);
+        \App\Category::create(['name' => 'undefined‏']); 
+
+        \App\Setting::create(['name' => 'delta library','email' => "delta@delta.com"]);
     }
 }
