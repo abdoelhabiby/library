@@ -71,6 +71,7 @@ class AdminsDataTable extends DataTable
 
             Column::make('id')->title("#"),
             Column::make('name')->title(trans('dashb.name')),
+            Column::make('email')->title(trans('dashb.email')),
             Column::make('phone')->title(trans('dashb.phone')),
             // Column::make('created_at')->title(trans('dashb.tb_created')),
             Column::make('updated_at')->title(trans('dashb.tb_updated')),

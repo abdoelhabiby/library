@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Admin;
+use App\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class StaffDataTable extends DataTable
+class UsersDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -20,9 +20,9 @@ class StaffDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query)
-            ->addColumn('edit', 'dashboard.staff.button.edit')
-            ->addColumn('delete', 'dashboard.staff.button.delete');    }
+            ->eloquent($query);
+         
+   }
 
     /**
      * Get query source of dataTable.
@@ -32,7 +32,7 @@ class StaffDataTable extends DataTable
      */
     public function query()
         {
-            $admin = Admin::role('staff')->select();
+            $admin = User::select();
 
             return $this->applyScopes($admin);
         }
@@ -72,21 +72,9 @@ class StaffDataTable extends DataTable
             Column::make('id')->title("#"),
             Column::make('name')->title(trans('dashb.name')),
             Column::make('email')->title(trans('dashb.email')),
-            Column::make('phone')->title(trans('dashb.phone')),
-            // Column::make('created_at')->title(trans('dashb.tb_created')),
+            Column::make('created_at')->title(trans('dashb.tb_created')),
             Column::make('updated_at')->title(trans('dashb.tb_updated')),
-            Column::computed('edit')
-                  ->title(trans('dashb.tb_edit'))
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
-            Column::computed('delete')
-                  ->title(trans('dashb.tb_delete'))
-                  ->exportable(false)
-                  ->printable(false)
-                  ->width(60)
-                  ->addClass('text-center'),
+ 
         ];
     }
 

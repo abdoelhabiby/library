@@ -27,7 +27,14 @@
              <p class="text-danger text-uppercase">{{$errors->first('name')}}</p>
          @endif
     </div>   
-
+  <!-- ---------------------------------------------------------------------------------------- -->     
+  <div class="form-group">
+       {!! Form::label('email', trans('dashb.email'), ['class' => 'awesome']) !!} 
+       {!! Form::email("email",value($admin->email),['class' => 'form-control']) !!}
+         @if($errors->has('email'))
+             <p class="text-danger text-uppercase">{{$errors->first('email')}}</p>
+         @endif
+    </div>   
   <!-- ---------------------------------------------------------------------------------------- -->
      <div class="form-group">
        {!! Form::label('phone', trans('dashb.phone'), ['class' => 'awesome']) !!} 

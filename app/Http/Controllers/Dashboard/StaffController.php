@@ -53,8 +53,9 @@ class StaffController extends Controller
       
          $validate = $request->validate([
    
-              "name" => 'required|min:3|string|unique:admins',
-              "phone" => 'required|min:6|string|unique:admins',
+              "name" => 'required|min:3|string',
+              "email" => 'required|min:3|string|unique:admins',
+              "phone" => 'required|min:6|string',
               "password" => 'required|confirmed|min:6|string',
 
             
@@ -113,8 +114,9 @@ class StaffController extends Controller
 
          $validate = $request->validate([
    
-              "name" => 'required|min:3|string|unique:admins,name,'.$admin->id.'id',
-              "phone" => 'required|min:6|string|unique:admins,phone,'.$admin->id.'id',
+              "name" => 'required|min:3|string',
+              "email" => 'required|min:3|string|unique:admins,email,'.$admin->id.'id',
+              "phone" => 'required|min:6|string',
 
             
          ]);

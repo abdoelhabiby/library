@@ -63,7 +63,7 @@
                     <div class="form-group">
 
 
-                      <input type="name" class="form-control form-control-user @error('name') is-invalid @enderror" id="name" aria-describedby="emailHelp" placeholder="{{trans('dashb.name')}}" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                      <input type="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" placeholder="{{trans('dashb.email')}}" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                  
 

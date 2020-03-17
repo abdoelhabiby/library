@@ -41,6 +41,7 @@ class makeSuperAdmin extends Seeder
                 "read_book",
                 "update_book",
                 "delete_book",
+                "read_students",
                 "edit_setting"
 
                 ];
@@ -53,12 +54,13 @@ $permission_admin = [
                 "create_book",
                 "read_book",
                 "update_book",
+                'read_students',
                 "delete_book"
             ];
 
 
 
-     $admin = \App\Admin::create(['name' => 'super_admin','phone' => '0000000','level' => 'super_admin','password' => bcrypt(123456)]);
+     $admin = \App\Admin::create(['name' => 'super_admin','email' => 'super_admin@admin.com','phone' => '0000000','level' => 'super_admin','password' => bcrypt(123456)]);
 
      $role_s_admin = Role::create(['name' => 'super_admin']);
 

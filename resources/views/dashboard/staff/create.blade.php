@@ -26,6 +26,15 @@
              <p class="text-danger text-uppercase">{{$errors->first('name')}}</p>
          @endif
     </div>   
+  <!-- ---------------------------------------------------------------------------------------- --> 
+
+    <div class="form-group">
+       {!! Form::label('email', trans('dashb.email'), ['class' => 'awesome']) !!} 
+       {!! Form::email("email",old('email'),['class' => 'form-control']) !!}
+         @if($errors->has('email'))
+             <p class="text-danger text-uppercase">{{$errors->first('email')}}</p>
+         @endif
+    </div>   
 
   <!-- ---------------------------------------------------------------------------------------- -->
      <div class="form-group">
@@ -69,8 +78,13 @@
   <li class="nav-item">
     <a class="nav-link active" id="categories-tab" data-toggle="tab" href="#categories" role="tab" aria-controls="categories" aria-selected="true">{{trans('dashb.categories')}}</a>
   </li>
+
   <li class="nav-item">
     <a class="nav-link" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="book" aria-selected="false">{{trans('dashb.books')}}</a>
+  </li>  
+
+  <li class="nav-item">
+    <a class="nav-link" id="students-tab" data-toggle="tab" href="#students" role="tab" aria-controls="students" aria-selected="false">{{trans('dashb.books')}}</a>
   </li>
 
 </ul>
@@ -84,6 +98,7 @@
   @endforeach
 
   </div>
+
   <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
     <br>
    @foreach($book as $books)  
@@ -91,6 +106,16 @@
       <input type="checkbox" value="{{$books}}" name="permission[]"> {{ trans('dashb.'.$books) }}
     </label>
   @endforeach
+  </div>
+</div>
+
+
+ <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
+    <br>
+
+    <label class="checkbox-inline col-2">
+      <input type="checkbox" value="read_students" name="permission[]"> {{ trans('dashb.read_students') }}
+    </label>
   </div>
 </div>
 

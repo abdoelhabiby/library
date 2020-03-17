@@ -21,7 +21,7 @@ class AdminAcountController extends Controller
 
       $remember_me = request()->remember ? true : false;
 
-      if(auth()->guard("admin")->attempt(["name" => request()->name,"password" => request()->password],$remember_me)){
+      if(auth()->guard("admin")->attempt(["email" => request()->email,"password" => request()->password],$remember_me)){
 
         return redirect(route('Dashboard'));
 

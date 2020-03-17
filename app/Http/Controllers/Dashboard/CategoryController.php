@@ -77,9 +77,19 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
+
+      if($id != 1){
+           
+          
+
         $category = Category::findOrFail($id);
 
         return  view('dashboard.categories.edit',compact('category'));
+
+      }else{
+        return redirect(route('categories.index'));
+
+      }
 
     }
 
@@ -90,6 +100,8 @@ class CategoryController extends Controller
     {
 
        $category = Category::findOrFail($id);
+
+    if($id != 1){
 
        $validate = $request->validate([
               
@@ -103,6 +115,11 @@ class CategoryController extends Controller
         session()->flash('success',trans('dashb.success_update'));
 
         return redirect(route('categories.index'));
+
+      }else{
+        return redirect(route('categories.index'));
+
+      }
     }
 
 // -------------------------------------------------------------------------------

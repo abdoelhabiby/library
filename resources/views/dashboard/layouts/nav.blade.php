@@ -58,6 +58,18 @@
       </li>
 @endif
 
+@if(admin()->hasPermissionTo('read_staff'))
+
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item {{ request()->segment(2) == 'students' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('students.index')}}">
+          <i class="fas fa-fw fa-users"></i>
+          <span>{{trans('dashb.students')}}</span></a>
+      </li>
+@endif
+
       <!-- Divider -->
  @if(admin()->hasPermissionTo('read_category'))
      

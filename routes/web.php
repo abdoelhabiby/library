@@ -32,14 +32,15 @@ Config(['auth.defaults.guard' => 'admin']);
 
 		Route::resource('admins','AdminsController')->except('show');
 		Route::resource('staff','StaffController')->except('show');
+		Route::get('students','UsersController@index')->name('students.index');
 
 
- Route::group(['middleware' => 'permission:edit_setting'],function(){
+		 Route::group(['middleware' => 'permission:edit_setting'],function(){
 
-		Route::get('settings','SettingsController@edit')->name('setting.edit');
-		Route::PUT('settings','SettingsController@update')->name('setting.update');
+				Route::get('settings','SettingsController@edit')->name('setting.edit');
+				Route::PUT('settings','SettingsController@update')->name('setting.update');
 
- });
+		 });
 
 
     });

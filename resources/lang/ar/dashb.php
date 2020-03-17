@@ -97,6 +97,7 @@ return [
 	"create_book"  => "اضافة كتب",
 	"read_book"  => "رؤيه كتب",
 	"update_book"  => "تعديل كتب",
-	"delete_book"  => "حذف كتب",              
+	"delete_book"  => "حذف كتب", 
+	"students"  => "ألطلاب",             
 
 ];
