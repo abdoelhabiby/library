@@ -58,7 +58,6 @@ $permission_admin = [
                 "read_book",
                 "update_book",
                 'read_students',
-                "create_reservation",
                 "read_reservation",
                 "update_reservation",
                 "delete_reservation",
