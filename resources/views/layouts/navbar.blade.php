@@ -13,22 +13,49 @@
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">الرئيسية <span class="sr-only">(current)</span></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">ألاقســام</a>
+   <!-- ------------------------- categories -------------------------------------------------------- -->
+
+
+                           <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                    {{trans('welcome.categories')}}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                               @foreach($categories as $category)     
+                                    <a class="dropdown-item" href="{{route('categoryId',$category->id)}}">{{$category->name == 'undefined‏' ? 'عام' : $category->name}}
+                                    </a>
+                                @endforeach    
+
+                                </div>
                             </li>
+   <!-- ------------------------- end categories------------------------------------------------ -------->
+               
+
+
+               @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('welcome.login')}}">{{trans('welcome.login')}}</a>
+                            </li>
+
+               @else
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                    حســابـك
+                                    {{auth()->user()->name}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="login.html">تسجيل الدخول</a>
-                                    <a class="dropdown-item" href="#">حجز كتاب</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">الدعم الفني</a>
+                                    <a class="dropdown-item" href="{{route('welcome.logout')}}">تسجيل الخروج</a>
+
                                 </div>
                             </li>
+                
+
+
+                @endguest        
+
                         </ul>
+
                         <form class="form-inline my-2 my-lg-0">
                             <input class="form-control ml-sm-2" type="search" placeholder="بتـدور علي اية؟" aria-label="Search">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">أبـحــث</button>
@@ -37,38 +64,14 @@
                 </div>
             </nav>
             <!-- Start Navbar -->
+
             <!-- Start Slider -->
-            <div class="slider">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="intro">
-                                <span class="welcome">اهلا بِكَ فِي مَوْقِعِ مَكْتَبَةِ الدِّلْتَا الْمَرْكَزِيَّةِ.</span>
-                                <h1>
-                                    بتدور علي
-                                    <a href="هتحط لينك الجاتيجوريز هني ياهشام علشان لو جيت تسالني ولقيتني مش فاتح واتس اب" class="typewrite" data-period="2000" data-type='[ "كتاب", "محاضرة", "ملف PDF" ]'>
-                                        <span class="wrap"></span>
-                                    </a>
-                                    ؟
-                                </h1>
-                                <p>لـقد قمنـا بانشــاء هـذا الموقـع لاثــراء مــحـتـوي الـقــراء وللاحتفاظ بالمراجع وتحويل وتقدم المحتوي باستخدام التكنولوجيا لمستقبل افضل ان شاء الله ونتمني لكم تجربة مفيدة وسعيدة ولذيذة واحلا مسا..</p>
-                                <button class="book-now">احجز الان</button>
-                                <button class="login">تسجيل الدخول</button>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="image">
-                                <img data-tilt src="{{asset('qeno')}}/images/undraw_book_lover_mkck.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @yield('slider') 
             <!-- End Slider -->
         </header>
 
 <div class="content">
-    
+
     @yield('content')
 
 </div>

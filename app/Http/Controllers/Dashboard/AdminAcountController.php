@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,8 +15,6 @@ class AdminAcountController extends Controller
 
 
     public function loginSubmit(){
-
-
 
       $remember_me = request()->remember ? true : false;
 

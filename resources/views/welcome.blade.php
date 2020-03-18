@@ -1,5 +1,42 @@
 @extends('layouts.app')
 
+@section('title')
+مكتبة الدلتا
+@endsection
+
+@section('slider')
+            <div class="slider">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="intro">
+                                <span class="welcome">اهلا بِكَ فِي مَوْقِعِ مَكْتَبَةِ الدِّلْتَا الْمَرْكَزِيَّةِ.</span>
+                                <h1>
+                                    بتدور علي
+                                    <a  class="typewrite" data-period="2000" data-type='[ "كتاب", "محاضرة", "ملف PDF" ]'>
+                                        <span class="wrap"></span>
+                                    </a>
+                                    ؟
+                                </h1>
+                                <p>لـقد قمنـا بانشــاء هـذا الموقـع لاثــراء مــحـتـوي الـقــراء وللاحتفاظ بالمراجع وتحويل وتقدم المحتوي باستخدام التكنولوجيا لمستقبل افضل ان شاء الله ونتمني لكم تجربة مفيدة وسعيدة ولذيذة واحلا مسا..</p>
+                                <button class="book-now">احجز الان</button>
+                             @guest   
+                                <button class="login"><a href="{{route('welcome.login')}}">تسجيل الدخول</a></button>
+                             @endguest   
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="image">
+                                <img data-tilt src="{{asset('qeno')}}/images/undraw_book_lover_mkck.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+      @endsection      
+
+
 @section('content')
 
         <!-- Start About Us -->

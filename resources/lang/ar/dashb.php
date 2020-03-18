@@ -68,7 +68,7 @@ return [
 	"description_web" => "وصف البتاع",
 	"status_web"  => "حاله الموقع",
 	"remeber"  => "تذكرني",
-    "loginError" => "عفوا الاسم او الرقم السري غير صحيح",
+    "loginError" => "عفوا الايميل او الرقم السري غير صحيح",
     "error"  => "خطأ", 
     "logoutMessage"  => "هل انت متاكد من الخروج",
 	"cancel"  => "تجاهل",

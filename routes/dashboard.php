@@ -8,10 +8,6 @@ Route::group(['prefix' => 'eldashboard','middleware' => 'authAdmin:admin'],funct
 
 Config(['auth.defaults.guard' => 'admin']);
 
-
-
-
-
 	Route::group(['namespace' => 'Dashboard'],function(){
 
 	    Route::get('/',"DashboardController@index")->name('Dashboard');

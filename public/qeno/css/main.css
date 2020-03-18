@@ -5,8 +5,8 @@
 /* Start Main Roles */
 body {
     font-family: 'El Messiri' !important;
-    height: 2000px;
-}
+/*    height: 2000px;
+*/}
 
 .heading-section {position: relative; padding: 50px 0; background-color: #536DFE; text-align: center; color: #FFF;}
 .heading-section::after {

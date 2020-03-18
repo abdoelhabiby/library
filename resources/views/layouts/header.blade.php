@@ -4,6 +4,7 @@
         <!-- Meta Tags  -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="icon" href="{{asset('qeno')}}/images/logof.png" type="image/gif" sizes="16x16">
         <!-- Meta Tags  -->
 
         <!-- Css files  -->
@@ -14,7 +15,7 @@
         <!-- Css files  -->
 
         <!-- Title Page -->
-        <title>مكتبة الدلتا</title>
+        <title>@yield('title')</title>
         <!-- Title Page -->
 
     </head>
