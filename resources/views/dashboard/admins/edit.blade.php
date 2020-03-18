@@ -66,6 +66,7 @@
   <?php
       $permission = ['create_admin','read_admin','update_admin','delete_admin'];
       $staff = ['create_staff','read_staff','update_staff','delete_staff'];
+
   ?>  
 
 
@@ -76,12 +77,18 @@
 
 
  <ul class="nav nav-tabs" id="myTab" role="tablist">
+
   <li class="nav-item">
     <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="true">{{trans('dashb.admins')}}</a>
   </li>
+    <!-- ----------------------------------------------------------------------------- -->
+
   <li class="nav-item">
     <a class="nav-link" id="staff-tab" data-toggle="tab" href="#staff" role="tab" aria-controls="staff" aria-selected="false">{{trans('dashb.staff')}}</a>
   </li>
+
+  <!-- ----------------------------------------------------------------------------- -->
+
 
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -94,14 +101,19 @@
   @endforeach
 
   </div>
-  <div class="tab-pane fade" id="staff" role="tabpanel" aria-labelledby="staff-tab">
-    <br>
-   @foreach($staff as $Staff)  
-    <label class="checkbox-inline col-2">
-      <input type="checkbox" value="{{$Staff}}" name="permission[]"{{$admin->hasPermissionTo($Staff) ? 'checked' : ''}}> {{ trans('dashb.'.$Staff) }}
-    </label>
-  @endforeach
-  </div>
+
+    <div class="tab-pane fade" id="staff" role="tabpanel" aria-labelledby="staff-tab">
+      <br>
+     @foreach($staff as $Staff)  
+      <label class="checkbox-inline col-2">
+        <input type="checkbox" value="{{$Staff}}" name="permission[]"{{$admin->hasPermissionTo($Staff) ? 'checked' : ''}}> {{ trans('dashb.'.$Staff) }}
+      </label>
+    @endforeach
+    </div> 
+
+
+
+
 </div>
 
 

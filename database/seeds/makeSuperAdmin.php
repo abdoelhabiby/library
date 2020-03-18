@@ -40,14 +40,17 @@ class makeSuperAdmin extends Seeder
                 "create_book",
                 "read_book",
                 "update_book",
-                "delete_book",
+                "delete_book",     
+                "read_reservation",
+                "update_reservation",
+                "delete_reservation",
                 "read_students",
                 "edit_setting"
 
                 ];
 
 $permission_admin = [
-	            "create_category",
+	             "create_category",
                 "read_category",
                 "update_category",
                 "delete_category",
@@ -55,6 +58,10 @@ $permission_admin = [
                 "read_book",
                 "update_book",
                 'read_students',
+                "create_reservation",
+                "read_reservation",
+                "update_reservation",
+                "delete_reservation",
                 "delete_book"
             ];
 

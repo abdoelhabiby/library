@@ -15,12 +15,11 @@ class Book extends Model
 			"category_id",
 			"description",
 			"photo",
-			"available",
 
     ];
 
 
-    function category(){
+    public function category(){
 
     	return $this->belongsTo(Category::class);
     }

@@ -15,7 +15,7 @@ class UsersController extends Controller
   
   public function __construct(){
 
-//      $this->middleware('permission:read_admin')->only('index');
+      $this->middleware('permission:read_students')->only('index');
 
   }
 

@@ -46,23 +46,7 @@
     </div>   
 
 <!-- ---------------------------------------------------------------------------------------- -->
- <div class="form-group">
-  <div>
-       {!! Form::label('available', trans('dashb.available'), ['class' => 'awesome']) !!} 
-</div>
-        <div class="form-check row">
-          <label class="form-check-label col-1" for="inlineRadio1"> {{trans('dashb.yes')}}</label>
-          <input class="form-check-input" type="radio" name="available" id="inlineRadio1" value="yes" checked="">
-
-
-        </div>
-        <div class="form-check row">
-          <label class="form-check-label col-1" for="inlineRadio2"> {{trans('dashb.no')}}</label>
-          <input class="form-check-input" type="radio" name="available" id="inlineRadio2" value="no">
-
-        </div>
-     
-    </div>   
+  
 <!-- ---------------------------------------------------------------------------------------- -->
     <div class="form-group">
        {!! Form::label('description', trans('dashb.description'), ['class' => 'awesome']) !!} 

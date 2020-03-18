@@ -66,6 +66,8 @@
 
       $category = ['create_category','read_category','update_category','delete_category'];
       $book = ['create_book','read_book','update_book','delete_book'];
+      $reservation = ["read_reservation","update_reservation","delete_reservation"]
+
   ?>  
 
 
@@ -81,6 +83,16 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" id="book-tab" data-toggle="tab" href="#book" role="tab" aria-controls="book" aria-selected="false">{{trans('dashb.books')}}</a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" id="students-tab" data-toggle="tab" href="#students" role="tab" aria-controls="students" aria-selected="false">{{trans('dashb.students')}}</a>
+  </li>
+
+    <!-- ----------------------------------------------------------------------------- -->
+
+  <li class="nav-item">
+    <a class="nav-link" id="reservations-tab" data-toggle="tab" href="#reservations" role="tab" aria-controls="reservations" aria-selected="false">{{trans('dashb.reservations')}}</a>
   </li>
 
 </ul>
@@ -102,6 +114,25 @@
     </label>
   @endforeach
   </div>
+
+   <div class="tab-pane fade" id="students" role="tabpanel" aria-labelledby="students-tab">
+    <br>
+
+    <label class="checkbox-inline col-2">
+      <input type="checkbox" value="read_students" name="permission[]" {{$admin->hasPermissionTo('read_students') ? 'checked' : ''}}> {{ trans('dashb.read_students') }}
+    </label>
+  </div>
+
+ <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
+      <br>
+     @foreach($reservation as $reservations)  
+      <label class="checkbox-inline col-2">
+        <input type="checkbox" value="{{$reservations}}" name="permission[]"{{$admin->hasPermissionTo($reservations) ? 'checked' : ''}}> {{ trans('dashb.'.$reservations) }}
+      </label>
+    @endforeach
+    </div>
+
+
 </div>
 
 

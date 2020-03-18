@@ -79,12 +79,21 @@
   <li class="nav-item">
     <a class="nav-link active" id="admin-tab" data-toggle="tab" href="#admin" role="tab" aria-controls="admin" aria-selected="true">{{trans('dashb.admins')}}</a>
   </li>
+
+<!-- ----------------------------------------------------------------------------- -->
+
   <li class="nav-item">
     <a class="nav-link" id="staff-tab" data-toggle="tab" href="#staff" role="tab" aria-controls="staff" aria-selected="false">{{trans('dashb.staff')}}</a>
   </li>
+<!-- ----------------------------------------------------------------------------- -->
+
+
+<!-- ----------------------------------------------------------------------------- -->
+
 
 </ul>
 <div class="tab-content" id="myTabContent">
+
   <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
     <br>
   @foreach($permission as $permissions)  
@@ -94,6 +103,7 @@
   @endforeach
 
   </div>
+
   <div class="tab-pane fade" id="staff" role="tabpanel" aria-labelledby="staff-tab">
     <br>
    @foreach($staff as $Staff)  
@@ -102,6 +112,8 @@
     </label>
   @endforeach
   </div>
+
+
 </div>
 
 

@@ -58,7 +58,7 @@
       </li>
 @endif
 
-@if(admin()->hasPermissionTo('read_staff'))
+@if(admin()->hasPermissionTo('read_students'))
 
       <hr class="sidebar-divider my-0">
 
@@ -67,6 +67,18 @@
         <a class="nav-link" href="{{route('students.index')}}">
           <i class="fas fa-fw fa-users"></i>
           <span>{{trans('dashb.students')}}</span></a>
+      </li>
+@endif
+
+@if(admin()->hasPermissionTo('read_reservation'))
+
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item {{ request()->segment(2) == 'reservations' ? 'active' : ''}}">
+        <a class="nav-link" href="{{route('reservations.index')}}">
+          <i class="fas fa-fw fa-list-alt"></i>
+          <span>{{trans('dashb.reservations')}}</span></a>
       </li>
 @endif
 
