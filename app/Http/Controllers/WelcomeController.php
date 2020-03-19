@@ -33,6 +33,9 @@ class WelcomeController extends Controller
 
             $book = $category->books()->paginate(6);
 
+           // $book = $category->books()->first();
+
+
 
        	 return view('category.index',compact(['categories','category','book']));
        }

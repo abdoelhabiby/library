@@ -20,7 +20,6 @@ class CreateReservationsTable extends Migration
             $table->unsignedBigInteger('book_id');
             $table->foreign('book_id')->references('id')->on('books');
             $table->enum('status',['pending','active','refused'])->default('pending ');
-            $table->boolean('like')->default(0);
             $table->enum('evaluation',[1,2,3,4,5])->default(1);
             $table->timestamps();
         });

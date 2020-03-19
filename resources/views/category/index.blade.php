@@ -25,7 +25,41 @@
                                 	{{$category->name == 'undefined‏' ? 'عام' : $category->name }}
                                 </span>
                                 <h3 class="book-name">{{$books->title}}</h3>
-                                <span class="status status-no">مــتاح</span>
+                                
+
+                                 @if($books->reservation->count() > 0) 
+                                  
+                                    @foreach($books->reservation as $test)
+                                        @if($test->status != 'refused')
+                                          <span class="status status-no">
+                                            غير متاح
+
+                                          </span>
+
+                                         @else
+                                          <span class="status status-yas">
+                                               متاح
+                                          </span>
+
+                                         @endif 
+
+
+                                    @endforeach
+                                  
+                                 @else
+                                 <div class="booking">
+                                   <span class="status status-yas">
+                                       متاح
+                                   </span>
+                                   <a href="#" class="status status-yas" style="margin-right: 5px;">
+                                       حجز
+                                   </a>
+
+                                </div>
+
+                                 
+                                 @endif   
+                                
                             </div>
                             <div class="book-details">
                                 <div class="stars">
@@ -37,7 +71,6 @@
                                 </div>
                                 <div class="booking">
                                     <i class="heart-emptyicon- love"></i>
-                                    <a class="booking-btn" href="#">حجز</a>
                                 </div>
 
                             </div>
@@ -48,7 +81,8 @@
 
 
             </div> 
-            <div class="text-center">
+            <div class="d-flex justify-content-center mt-3">
+
                 {{ $book->appends(request()->query())->links() }}
 
             </div>

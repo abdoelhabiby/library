@@ -70,10 +70,9 @@ class ReservationsDataTable extends DataTable
         return [
 
             Column::make('id')->title("#"),
-            Column::make('book.title')->title(trans('dashb.title')),
-            Column::make('user.name')->title(trans('dashb.name')),
             Column::make('status')->title(trans('dashb.status')),
-            Column::make('like')->title(trans('dashb.like')),
+            Column::make('user.name')->title(trans('dashb.name')),
+            Column::make('book.title')->title(trans('dashb.title')),
             Column::make('evaluation')->title(trans('dashb.evaluation')),
             Column::make('updated_at')->title(trans('dashb.tb_updated')),
             Column::computed('edit')

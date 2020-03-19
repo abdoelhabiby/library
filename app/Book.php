@@ -15,6 +15,7 @@ class Book extends Model
 			"category_id",
 			"description",
 			"photo",
+            "like",
 
     ];
 
@@ -22,5 +23,11 @@ class Book extends Model
     public function category(){
 
     	return $this->belongsTo(Category::class);
+    }
+
+
+    public function reservation(){
+        return $this->hasMany(Reservation::class);
+
     }
 }

@@ -12,7 +12,6 @@ class Reservation extends Model
         "student_id",
 		"book_id",
 		"status",
-		"like",
 		"evaluation",
 
     ];
@@ -26,7 +25,7 @@ class Reservation extends Model
 
   public function book(){
 
-    	return $this->belongsTo(Book::class);
+    	return $this->hasOne(Book::class,'id','book_id');
     } 
 
 

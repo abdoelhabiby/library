@@ -25,69 +25,27 @@ class ReservationsController extends Controller
 
     public function index(ReservationsDataTable $dataTable)
     {
+
+        // $admin = Reservation::with(['user','book'])->get();
+
+        // return $admin;
     
         return $dataTable->render('dashboard.reservations.index');
 
     }
 
-// -------------------------------------------------------------------------------
 
 
-    // public function create()
-    // {
-    //     $categories = Category::pluck('name','id'); 
-       
-    //     return view('dashboard.books.create',compact('categories'));
-    // }
+//-----------------------------------------------------------
 
-// -------------------------------------------------------------------------------
-
-
-    // public function store(Request $request)
-    // {
-
-
-      
-    //      $validate = $request->validate([
-              
-    //           "title" => 'required|min:3|string|unique:books',
-    //           "category_id" => 'sometimes|nullable|numeric',
-    //           "photo" => checkImage(),
-    //           "description" => 'sometimes|nullable|string',
-            
-    //      ]);
-
-    //      if($request->hasFile('photo')){
-             
-    //          $replace = str_replace('public/', '', uploade()->uploadeImage(null,$request->file('photo'),'books'));
-
-
-    //         $validate['photo'] = $replace;
-    //      }
-
-  
-    //  if(request()->category_id == null){
-
-    //     $validate['category_id'] = 1;
-    //  }
-
-  
-
-    //     Book::create($validate);
-
-    //     session()->flash('success',trans('dashb.success_create'));
-
-    //     return redirect(route('books.index'));
-    // }
-
-// -------------------------------------------------------------------------------
-
-
-
-    public function edit(Reservation $reservation)
+    public function edit($id)
     {
 
+       return $id;
 
+         $reservation = Reservation::all();
+
+         return $reservation;
          
         return  view('dashboard.reservations.edit',compact('reservation'));
 
