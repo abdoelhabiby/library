@@ -67,4 +67,12 @@ function admin(){
 }
 
 
+function categories(){
+
+            return \App\Category::all();
+
+}
+
+
+
 ?>

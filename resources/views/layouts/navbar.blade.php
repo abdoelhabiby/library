@@ -22,7 +22,7 @@
                                     {{trans('welcome.categories')}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                               @foreach($categories as $category)     
+                               @foreach(categories() as $category)     
                                     <a class="dropdown-item" href="{{route('categoryId',$category->id)}}">{{$category->name == 'undefined‏' ? 'عام' : $category->name}}
                                     </a>
                                 @endforeach    
@@ -45,7 +45,10 @@
                                     {{auth()->user()->name}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{route('welcome.logout')}}">تسجيل الخروج</a>
+                                <a class="dropdown-item" href="{{route('student_books')}}">كتبي</a>
+                                <hr>
+                                <a class="dropdown-item" href="{{route('welcome.logout')}}">تسجيل الخروج</a>
+
 
                                 </div>
                             </li>

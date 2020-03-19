@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 Config(['auth.defaults.guard' => 'web']);
 
-class StudentController extends Controller
+class StudentAcountController extends Controller
 {
    
 

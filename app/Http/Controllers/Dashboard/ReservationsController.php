@@ -25,10 +25,6 @@ class ReservationsController extends Controller
 
     public function index(ReservationsDataTable $dataTable)
     {
-
-        // $admin = Reservation::with(['user','book'])->get();
-
-        // return $admin;
     
         return $dataTable->render('dashboard.reservations.index');
 
@@ -36,16 +32,12 @@ class ReservationsController extends Controller
 
 
 
-//-----------------------------------------------------------
+//--------------------------------------
 
-    public function edit($id)
+    public function edit(Reservation $reservation)
     {
 
-       return $id;
 
-         $reservation = Reservation::all();
-
-         return $reservation;
          
         return  view('dashboard.reservations.edit',compact('reservation'));
 
@@ -62,6 +54,12 @@ class ReservationsController extends Controller
             "status" => "required|in:pending,active,refused"
 
        ]);
+
+
+       if($validate['status'] == 'refused'){
+
+          \App\Book::where('id',$reservation->book_id)->update(['available' => 'yes']);
+       }
 
 
         $reservation->update($validate);

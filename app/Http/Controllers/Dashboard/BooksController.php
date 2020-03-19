@@ -55,7 +55,8 @@ class BooksController extends Controller
               "title" => 'required|min:3|string|unique:books',
               "category_id" => 'sometimes|nullable|numeric',
               "photo" => checkImage(),
-              "description" => 'sometimes|nullable|string',
+              "description" => 'required|min:30|string',
+              "available" => 'sometimes|nullable|in:yes,no',
             
          ]);
 
@@ -111,7 +112,9 @@ class BooksController extends Controller
               "title" => 'required|min:3|string|unique:books,title,'.$book->id.'id',
               "category_id" => 'sometimes|nullable|numeric',
               "photo" => checkImage(),
-              "description" => 'sometimes|nullable|string',
+              "description" => 'required|min:30|string',
+              "available" => 'sometimes|nullable|in:yes,no',
+
             
          ]);
 

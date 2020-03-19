@@ -49,7 +49,11 @@
     </div>   
 
 <!-- ---------------------------------------------------------------------------------------- -->
-  
+   <div class="form-group">
+       {!! Form::label('available', trans('dashb.available'), ['class' => 'awesome']) !!} 
+       {!! Form::select("available",['yes' => trans('dashb.yes'),'no' => trans('dashb.no')],value($book->available),['class' => 'form-control']) !!}
+
+ </div>  
 <!-- ---------------------------------------------------------------------------------------- -->
     <div class="form-group">
        {!! Form::label('description', trans('dashb.description'), ['class' => 'awesome']) !!} 
