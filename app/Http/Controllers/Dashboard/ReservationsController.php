@@ -51,7 +51,7 @@ class ReservationsController extends Controller
 
        $validate = $request->validate([
             
-            "status" => "required|in:pending,active,refused"
+            "status" => "required|in:pending,active,refused,retrieved"
 
        ]);
 

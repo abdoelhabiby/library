@@ -24,8 +24,10 @@ class StudentAcountController extends Controller
 
         if(auth()->attempt(['email' => request()->email,'password' => request()->password])){
 
-             return redirect('/');
+            return redirect(route('welcome'));
         }else{
+
+
             return back();
         }
     }

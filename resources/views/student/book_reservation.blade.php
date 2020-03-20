@@ -9,7 +9,8 @@
 
 <script type="text/javascript">
 	$(function(){
-       $("#reservationBook").click(function(){
+       $("#reservationBook").click(function(e){
+
 
          $.ajax({
 
@@ -93,7 +94,7 @@
 
 		     <div class="book-body col-md-5 col-sm-12">
 		        <div class="book-img">
-		            <img src="{{asset('storage/'.$book->photo)}}" alt="books" height="450px" />
+		            <img src="{{asset('storage/'.$book->photo)}}" alt="books" height="450px"  width="100%" />
 		        </div>
 		     </div>
 

@@ -2,7 +2,7 @@
             <!-- Start Navbar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-                    <a class="navbar-brand" href="#"><img class="logo" src="{{asset('qeno')}}/images/logof.png" alt="Logo">مكتبة الدلتا</a>
+                    <a class="navbar-brand" href="{{route('welcome')}}"><img class="logo" src="{{asset('qeno')}}/images/logof.png" alt="Logo">مكتبة الدلتا</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">الرئيسية <span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="{{route('welcome')}}">الرئيسية <span class="sr-only">(current)</span></a>
                             </li>
    <!-- ------------------------- categories -------------------------------------------------------- -->
 
@@ -59,8 +59,8 @@
 
                         </ul>
 
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control ml-sm-2" type="search" placeholder="بتـدور علي اية؟" aria-label="Search">
+                        <form class="form-inline my-2 my-lg-0" action="{{route('search_book')}}">
+                            <input class="form-control ml-sm-2" type="search" placeholder="بتـدور علي اية؟" aria-label="Search" name="book">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">أبـحــث</button>
                         </form>
                     </div>
@@ -72,6 +72,16 @@
             @yield('slider') 
             <!-- End Slider -->
         </header>
+@if(session()->has('success_contact'))
+<div class="container">
+<div class="alert alert-success alert-dismissible fade show text-right" role="alert">
+  <strong>تمم</strong> {{session('success_contact')}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+</div>
+@endif
 
 <div class="content">
 

@@ -49,7 +49,7 @@
 
    {!! Form::label('status',trans('dashb.status'), ['class' => 'awesome ']) !!} 
 
-   {!! Form::select('status',['pending' => trans('dashb.pending') ,'active' => trans('dashb.active') ,'refused' => trans('dashb.refused') ],$reservation->status, ['class' => 'awesome form-control']) !!} 
+   {!! Form::select('status',['pending' => trans('dashb.pending') ,'active' => trans('dashb.active') ,'retrieved' => trans('dashb.retrieved') ,'refused' => trans('dashb.refused') ],$reservation->status, ['class' => 'awesome form-control']) !!} 
 
 
 </div>

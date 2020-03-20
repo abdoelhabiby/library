@@ -73,6 +73,7 @@ class BooksDataTable extends DataTable
             Column::make('title')->title(trans('dashb.title')),
             Column::make('category.name')->title(trans('dashb.category')),
            Column::make('available')->title(trans('dashb.available')),
+           Column::make('like')->title(trans('dashb.like')),
             Column::make('updated_at')->title(trans('dashb.tb_updated')),
             Column::computed('edit')
                   ->title(trans('dashb.tb_edit'))

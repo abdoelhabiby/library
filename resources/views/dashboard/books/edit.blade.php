@@ -35,9 +35,13 @@
          @endif
         
    @if($book->photo == 'books/default.jpg')
-        <img src="{{asset('books/default.jpg')}}" class="showIm blah mt-2" width="110px" height="150px">
+     <div style="width:160px;height:160px">
+        <img src="{{asset('books/default.jpg')}}" class="showIm blah mt-2" width="100%" height="100%">
     @else
-        <img src="{{asset('storage/'.$book->photo)}}"  class="showIm blah mt-2" width="130px" height="150px">  
+   <div style="width:160px;height:160px">
+     <img src="{{asset('storage/'.$book->photo)}}"  class="showIm blah mt-2" width="100%" height="100%">     
+   </div>
+
     @endif
 
     </div>   

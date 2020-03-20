@@ -112,6 +112,7 @@ return [
     "fromF" => ' من 5',
     "pending"  =>  "قيد الانتظار",
 	"active"  =>  "نشيط",
-	"refused"  =>  "رفض",          
+	"refused"  =>  "رفض",
+	"retrieved" => "تم الاسترجاع",          
 
 ];

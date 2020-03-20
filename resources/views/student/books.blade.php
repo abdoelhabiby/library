@@ -27,13 +27,6 @@
         <article class="books-section">
             <div class="container">
  
- <div class="alert alert-warning alert-dismissible fade show text-center mb-5" role="alert">
-  <strong>يجب ان يكون استلام الكتاب في مده لسه هنحددها انا والتيم الضحكوك والا سيتم الغاء الحجز</strong> 
-
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
 
 @if(session()->has('success'))
 
@@ -46,10 +39,18 @@
 </div>
 @endif
 
-                <div class="row">
 
 
     @if($reservation->count() > 0)
+    
+ <div class="alert alert-warning alert-dismissible fade show text-center mb-5" role="alert">
+  <strong>يجب ان يكون استلام الكتاب في مده لسه هنحددها انا والتيم الضحكوك والا سيتم الغاء الحجز</strong> 
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+                <div class="row">
 
          @foreach($reservation as $reservations)
 
@@ -72,10 +73,15 @@
 									   </button>
                                      </div>
                                    
-                                   @else
+                                   @elseif($reservations->status == 'retrieved')
                                        <button class="btn btn-success">
                                        	  تمت قرأته
                                        </button>
+
+                                    @elseif($reservations->status == 'active') 
+                                     <button class="btn btn-success">
+                                        لديك
+                                       </button>  
    
                                  @endif
                
@@ -90,7 +96,7 @@
                                     <i class="staricon-"></i>
                                 </div>
                                 <div class="booking">
-                                    <i class="heart-emptyicon- love"></i>
+                            <i class="heart-emptyicon- love" id="addLike" data-id="{{$reservations->book->id}}"></i>
                                 </div>
 
                             </div>
@@ -108,7 +114,7 @@
 
             </div>
          @else
-         <center><h4>عفوا لا يوجد كتب حاليا في هذا القسم</h4></center>
+         <center class='text-center'><h4>عفوا لا يوجد كتب </h4></center>
          
          @endif     
                         

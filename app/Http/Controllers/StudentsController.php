@@ -24,7 +24,7 @@ class StudentsController extends Controller
         if($book->available == 'yes'){
 
 
-            return view('book_reservation',compact(['book']));
+            return view('student.book_reservation',compact(['book']));
 
         }else{
 
@@ -75,7 +75,8 @@ class StudentsController extends Controller
 
     public function student_books(){
 
-      $reservation = Reservation::where('student_id' ,auth()->user()->id)->get();
+      $reservation = Reservation::where('student_id' ,auth()->user()->id)->where('status', "!=",'refused')->get();
+
 
        
          return view('student.books',compact(['reservation']));
@@ -114,9 +115,49 @@ class StudentsController extends Controller
 
     }
 
+//=============================================================================
+
+
+  public function addLike($book_id){
+       
+       if(request()->ajax()){
+              
+             $book = Book::find($book_id);
+             
+             if(!empty($book)){
+
+               $likes = $book->like + 1;
+
+              $book->update(['like' => $likes]);
+
+
+
+             }else{
+              return response(['status' => 'error'],304);
+             } 
+
+        
+           return response(['status' => 'error'],304);
+
+
+
+
+          }else{
+
+            return response(['status' => 'error'],304);
+          }
+
+
+
+       }
+
+  
 
 
 //=============================================================================
+
+
+
 
 
 

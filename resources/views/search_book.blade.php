@@ -1,26 +1,19 @@
 @extends('layouts.app')
 
 @section('title')
-
-{{$category->name == 'undefined‏' ? 'عام' : $category->name }}
-
+ كتبي
 @endsection
+
 
 @section('content')
 
-
-
         <article class="books-section">
             <div class="container">
-                <div>
-                    <h4 style="float:right;">{{$category->name == 'undefined‏' ? 'عام' : $category->name }}</h4>
-                    
-                    <div style="clear: both;" class="mb-4"></div>
-                </div>
+
                 <div class="row">
 
 
-    @if($book->count() > 0)
+    @if($book->total() > 0)
 
      @foreach($book as $books)
                     <div class="col">
@@ -30,17 +23,17 @@
                             </div>
                             <div class="book-info">
                                 <span class="category">
-                                	{{$category->name == 'undefined‏' ? 'عام' : $category->name }}
+                                	{{$books->category->name == 'undefined‏' ? 'عام' : $books->category->name }}
                                 </span>
                                 <h3 class="book-name">{{$books->title}}</h3>
                                 
 
                                  @if($books->available == 'yes') 
                                      <div class="booking">
-                                       <span class="status status-yas p-2">
+                                       <span class="status status-yas">
                                            متاح
                                        </span>
-                                       <a href="{{route('book_reservation',$books->id)}}" class="status status-yas p-2" style="margin-right: 5px;">
+                                       <a href="{{route('book_reservation',$books->id)}}" class="status status-yas" style="margin-right: 5px;">
                                            حجز
                                        </a>
 
@@ -68,7 +61,7 @@
                                     <i class="staricon-"></i>
                                 </div>
                                 <div class="booking">
-                              @guest
+                                @guest
                                 
                                 @else    
                                  <i class="heart-emptyicon- love" id="addLike" data-id="{{$books->id}}"></i>
@@ -97,6 +90,6 @@
             </div>
         </article>
 
-@endsection
 
- 
+
+@endsection

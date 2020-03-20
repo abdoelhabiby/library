@@ -5,6 +5,9 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
+use Carbon\Carbon;
+
+
 class Kernel extends ConsoleKernel
 {
     /**
@@ -25,6 +28,20 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+      $schedule->call(function () {
+
+         $reservation =  \DB::table('reservations')->where("created_at","<",Carbon::now()->subHours(72))->get();
+
+          if(!empty($reservation)){
+
+             foreach ($reservation as $reservations) {
+
+                 \DB::table('reservations')->where('id',$reservations->id)->update(['status' => 'refused']);
+
+             }
+          }
+
+        })->everyMinute();
     }
 
     /**

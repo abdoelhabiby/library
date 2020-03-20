@@ -86,5 +86,10 @@ $permission_admin = [
 
        $admin->assignRole($role_s_admin);
 
+    //-----------------------------------------------------------
+
+    \App\User::create(['name' => 'ahmed','email' => 'a@a.com','password' => bcrypt(123456)]); 
+
+
     }
 }

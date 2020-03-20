@@ -7,33 +7,28 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Reservation;
 use App\Book;
+use App\ContactUs;
 
 Config(['auth.defaults.guard' => 'web']);
 
 class WelcomeController extends Controller
 {
     
-
      public function index(){
 
-       	return view('welcome');
+        $book = Book::orderBy('id','desc')->take(6)->get();
+        $category = categories();
+       	return view('welcome',compact('book'));
      }
 
      /*---------------------------------------------------------------------*/
        
        public function category($id){
 
-       	    
-
        	    $category = Category::where('id',$id)->first();
-
             $book = $category->books()->paginate(6);
 
-           // $book = $category->books()->first();
-
-
-
-       	 return view('category.index',compact(['category','book']));
+       	    return view('category.index',compact(['category','book']));
        }
 
      /*---------------------------------------------------------------------*/
@@ -42,18 +37,14 @@ class WelcomeController extends Controller
            
         $book = Book::with('reservation')->findOrFail($id);
 
+     	   if($book->available == 'yes'){
 
-     	if($book->available == 'yes'){
+     	   return view('book_reservation',compact(['book']));
 
-     		
+         	}else{
 
-     	    return view('book_reservation',compact(['book']));
-
-     	}else{
-
-
-     	    return back();
-     	}
+         	   return back();
+      	}
 
      }
      /*---------------------------------------------------------------------*/
@@ -68,34 +59,59 @@ class WelcomeController extends Controller
 
         	   if($book->available == 'yes'){
 
-         $reservation = Reservation::create(['student_id' => auth()->user()->id,'book_id' => $id]);
-          
-          $book->update(['available' => 'no']);
-
-
-        	  return response(["status" => 200,'content' => $reservation]);	   	   
+               $reservation = Reservation::create(['student_id' => auth()->user()->id,'book_id' => $id]);
+               $book->update(['available' => 'no']);
+        	     return response(["status" => 200,'content' => $reservation]);	   	   
 
         	   }else{
-
         	   return response(["status" => 304,'content' => 'not available']);	   	   
         	  }
-
             }else{
-
               return response(["status" => 304,'content' => 'not available']);	   	   
-
             }
 
 	        }else{
-
 	        	return redirect(route('welcome'));
-
 	        }
 
+        }
+     /*---------------------------------------------------------------------*/
 
+        public function search(){
+           $book = Book::when(request()->book,function($query){
+              return $query->where('title','like',"%".request()->book . "%")
+                           ->orWhere('description',"like","%" . request()->book . "%");
+          })->latest()->paginate(6);
+            return view('search_book',compact('book'));
         }
 
      /*---------------------------------------------------------------------*/
+
+         public function ContactUs(){
+             
+             $validate = request()->validate([
+                   
+                    "name" => "required|string",
+                    "email" => "required|email",
+                    "message" => "required|string",
+
+
+              ],[],[
+
+                "message" => 'الرساله'
+              ]);
+
+
+             ContactUs::create($validate);
+
+             session()->flash('success_contact','تم ارسال رسالتك وسوف يتم الرد عليك قريبا');
+
+             return back();
+
+ 
+         }
+
+
      /*---------------------------------------------------------------------*/
 
 }
