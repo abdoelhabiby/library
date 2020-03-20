@@ -79,7 +79,7 @@ class StudentsController extends Controller
 
 
        
-         return view('student.books',compact(['reservation']));
+         return view('student.student_books',compact(['reservation']));
     }    
 
 //=============================================================================

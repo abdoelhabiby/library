@@ -28,7 +28,7 @@ class WelcomeController extends Controller
        	    $category = Category::where('id',$id)->first();
             $book = $category->books()->paginate(6);
 
-       	    return view('category.index',compact(['category','book']));
+       	    return view('category.books',compact(['category','book']));
        }
 
      /*---------------------------------------------------------------------*/
