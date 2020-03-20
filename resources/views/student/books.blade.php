@@ -44,7 +44,7 @@
     @if($reservation->count() > 0)
     
  <div class="alert alert-warning alert-dismissible fade show text-center mb-5" role="alert">
-  <strong>يجب ان يكون استلام الكتاب في مده لسه هنحددها انا والتيم الضحكوك والا سيتم الغاء الحجز</strong> 
+  <strong>يجب ان يكون استلام الكتاب في مده خلال 72 ساعه والا سيتم الغاء الحجز</strong> 
 
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
