@@ -61,6 +61,11 @@ class ReservationsController extends Controller
           \App\Book::where('id',$reservation->book_id)->update(['available' => 'yes']);
        }
 
+      if($validate['status'] == 'retrieved'){
+
+          \App\Book::where('id',$reservation->book_id)->update(['available' => 'yes']);
+       }
+
 
         $reservation->update($validate);
 

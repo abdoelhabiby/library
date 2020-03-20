@@ -82,6 +82,12 @@
                                      <button class="btn btn-success">
                                         لديك
                                        </button>  
+
+                                     @else
+                                     
+                                         <button class="btn btn-danger">
+                                        تم رفضه
+                                       </button>  
    
                                  @endif
                

@@ -50,6 +50,9 @@ class checkReservation extends Command
              foreach ($reservation as $reservations) {
 
                  \DB::table('reservations')->where('id',$reservations->id)->update(['status' => 'refused']);
+                 \DB::table('books')->where('id',$reservations->book_id)->update(['available' => 'yes']);
+
+
 
              }
           }
