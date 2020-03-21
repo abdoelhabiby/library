@@ -22,9 +22,12 @@
                                     {{trans('welcome.categories')}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                               @foreach(categories() as $category)     
+                               @foreach(categories() as $category) 
+
+                                @if($category->books()>count() > 0)    
                                     <a class="dropdown-item" href="{{route('categoryId',$category->id)}}">{{$category->name == 'undefined‏' ? 'عام' : $category->name}}
                                     </a>
+                                 @endif   
                                 @endforeach    
 
                                 </div>
