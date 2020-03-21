@@ -67,38 +67,63 @@
 </div>
 
 
+ <article class="books-section">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        <div class="book-body">
+                            <div class="book-img">
+                                <img src="{{asset('storage/'.$book->photo)}}" alt="books" />
+                            </div>
+                            <div class="book-info">
+                                <span class="category">قسم تاريخ</span>
+                                <h3 class="book-name">كتاب حلو بس مجهد</h3>
+                            </div>
+                            <div class="book-details">
+                                <div class="stars">
+                                    <i class="staricon-"></i>
+                                    <i class="staricon-"></i>
+                                    <i class="staricon-"></i>
+                                    <i class="staricon-"></i>
+                                    <i class="staricon-"></i>
+                                </div>
+                                <div class="booking">
+                                    
+                                      {{$book->bookLikes()->count()}} اعجاب
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-7 text-right">
+                      {!! $book->description !!}
+
+                      <div>
+                       <a href="#" data-id="{{$book->id}}" class="btn btn-success" id="reservationBook">
+                           تأكيد الحجز
+                       </a>
+                      </div>
+                    </div>
 
 
-   <div class="row mt-5 mb-5" style="display: flex; justify-content: flex-start;" >
+    
+  
+
+                </div>
+            </div>
+        </article>
 
 
 
-		    <div class="book-body col-md-7 col-sm-12">
-
-		    	<div class="description">
-		    		<h4>{{$book->category->name}}</h4>
-		    		<hr>
-		    		<h5>{{$book->name}}</h5>
-		    		{!! $book->description !!}
-		    	</div>
-
-		    	<div class="text-center">
-
-		     <a href="#" data-id="{{$book->id}}" class="btn btn-success" id="reservationBook">
-		         تأكيد الحجز
-		     </a>
-		    		
-		    	</div>
-
-		    </div>	
-
-		     <div class="book-body col-md-5 col-sm-12">
-		        <div class="book-img">
-		            <img src="{{asset('storage/'.$book->photo)}}" alt="books" height="450px"  width="100%" />
-		        </div>
-		     </div>
 
 
-  </div>
+
+
 </div>
 @endsection
+
+      
+
+     

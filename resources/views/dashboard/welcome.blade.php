@@ -17,8 +17,8 @@
           <div class="row">
 
 
+@if(admin()->hasPermissionTo('read_admin'))
 
-            <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
@@ -36,8 +36,11 @@
                 </div>
               </div>
             </div>
+@endif
 
-            <!-- Earnings (Monthly) Card Example -->
+
+@if(admin()->hasPermissionTo('read_staff'))
+            
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
@@ -55,8 +58,11 @@
                 </div>
               </div>
             </div>
+@endif
 
-            <!-- Earnings (Monthly) Card Example -->
+
+@if(admin()->hasPermissionTo('read_category'))
+          
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
@@ -82,8 +88,11 @@
                 </div>
               </div>
             </div>
+@endif
 
-            <!-- Pending Requests Card Example -->
+
+@if(admin()->hasPermissionTo('read_book'))
+
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
@@ -102,6 +111,7 @@
               </div>
             </div>
           </div>
+@endif          
 
           <!-- Content Row -->
 

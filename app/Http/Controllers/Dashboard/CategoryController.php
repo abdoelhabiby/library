@@ -71,15 +71,12 @@ class CategoryController extends Controller
 // -------------------------------------------------------------------------------
 
 
-    public function edit($id)
+    public function edit(Category $category)
     {
+ 
 
-      if($id != 1){
-           
-          
-
-        $category = Category::findOrFail($id);
-
+      if($category->name != 'undefined‏'){
+         
         return  view('dashboard.categories.edit',compact('category'));
 
       }else{
@@ -92,12 +89,12 @@ class CategoryController extends Controller
 // -------------------------------------------------------------------------------
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
 
-       $category = Category::findOrFail($id);
 
-    if($id != 1){
+
+      if($category->name != 'undefined‏'){
 
        $validate = $request->validate([
               
@@ -120,21 +117,30 @@ class CategoryController extends Controller
 
 // -------------------------------------------------------------------------------
 
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-       $category = Category::findOrFail($id);
 
-   if($id != 1){
 
-       $category->delete();
+  
+        if($category->name != 'undefined‏'){
 
-       session()->flash('success',trans('dashb.success_delete'));
+            $category->delete();
 
-        return redirect(route('categories.index'));
-        }else{
-                  return redirect(route('categories.index'));
+            session()->flash('success',trans('dashb.success_delete'));
 
-        }
+            return redirect(route('categories.index'));
+
+          }else{
+          
+            return redirect(route('categories.index'));
+
+          }
 
     }
+
+
+
+// -------------------------------------------------------------------------------
+
+
 }

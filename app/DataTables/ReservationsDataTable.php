@@ -32,7 +32,7 @@ class ReservationsDataTable extends DataTable
      */
     public function query()
         {
-            $admin = Reservation::with(['user','book'])->select();
+            $admin = Reservation::with(['student','book'])->select();
 
             return $this->applyScopes($admin);
         }
@@ -71,7 +71,7 @@ class ReservationsDataTable extends DataTable
 
             Column::make('id')->title("#"),
             Column::make('status')->title(trans('dashb.status')),
-            Column::make('user.name')->title(trans('dashb.name')),
+            Column::make('student.full_name')->title(trans('dashb.name')),
             Column::make('book.title')->title(trans('dashb.title')),
             Column::make('evaluation')->title(trans('dashb.evaluation')),
             Column::make('created_at')->title(trans('dashb.tb_updated')),

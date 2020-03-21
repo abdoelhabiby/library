@@ -22,7 +22,9 @@ class StaffDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('edit', 'dashboard.staff.button.edit')
-            ->addColumn('delete', 'dashboard.staff.button.delete');    }
+            ->addColumn('delete', 'dashboard.staff.button.delete');   
+
+             }
 
     /**
      * Get query source of dataTable.

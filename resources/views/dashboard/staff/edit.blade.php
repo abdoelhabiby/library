@@ -66,7 +66,9 @@
 
       $category = ['create_category','read_category','update_category','delete_category'];
       $book = ['create_book','read_book','update_book','delete_book'];
-      $reservation = ["read_reservation","update_reservation","delete_reservation"]
+      $reservation = ["read_reservation","update_reservation","delete_reservation"];
+      $student = ["create_students","read_students","update_students","delete_students"];
+
 
   ?>  
 
@@ -100,7 +102,7 @@
   <div class="tab-pane fade show active" id="category" role="tabpanel" aria-labelledby="category-tab">
     <br>
   @foreach($category as $categories)  
-    <label class="checkbox-inline col-2">
+    <label class="checkbox-inline col-sm-2">
       <input type="checkbox" value="{{$categories}}" name="permission[]" {{$admin->hasPermissionTo($categories) ? 'checked' : ''}}> {{ trans('dashb.'.$categories) }}
     </label>
   @endforeach
@@ -109,24 +111,33 @@
   <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
     <br>
    @foreach($book as $books)  
-    <label class="checkbox-inline col-2">
+    <label class="checkbox-inline col-sm-2">
       <input type="checkbox" value="{{$books}}" name="permission[]"{{$admin->hasPermissionTo($books) ? 'checked' : ''}}> {{ trans('dashb.'.$books) }}
     </label>
   @endforeach
   </div>
 
+
+
    <div class="tab-pane fade" id="students" role="tabpanel" aria-labelledby="students-tab">
     <br>
+ @foreach($student as $students)  
 
-    <label class="checkbox-inline col-2">
-      <input type="checkbox" value="read_students" name="permission[]" {{$admin->hasPermissionTo('read_students') ? 'checked' : ''}}> {{ trans('dashb.read_students') }}
+    <label class="checkbox-inline col-sm-2">
+      <input type="checkbox" value="read_students" name="permission[]" 
+      {{$admin->hasPermissionTo($students) ? 'checked' : ''}}> {{ trans('dashb.'.$students) }}
     </label>
+
+  @endforeach
+
   </div>
+
+
 
  <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
       <br>
      @foreach($reservation as $reservations)  
-      <label class="checkbox-inline col-2">
+      <label class="checkbox-inline col-sm-2">
         <input type="checkbox" value="{{$reservations}}" name="permission[]"{{$admin->hasPermissionTo($reservations) ? 'checked' : ''}}> {{ trans('dashb.'.$reservations) }}
       </label>
     @endforeach

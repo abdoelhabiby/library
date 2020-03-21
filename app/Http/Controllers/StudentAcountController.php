@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
 
 Config(['auth.defaults.guard' => 'web']);
@@ -19,10 +18,10 @@ class StudentAcountController extends Controller
 /*----------------------------------------------------*/
 
     public function loginSubmit(){
+         
 
 
-
-        if(auth()->attempt(['email' => request()->email,'password' => request()->password])){
+        if(auth()->attempt(['student_id' => request()->student_id,'password' => request()->password])){
 
             return redirect(route('welcome'));
         }else{
@@ -36,7 +35,6 @@ class StudentAcountController extends Controller
 
 
     public function logout(){
-
 
          auth()->logout();
 

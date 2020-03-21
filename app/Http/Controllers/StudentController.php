@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Student;
 use Illuminate\Http\Request;
-use App\Category;
 use App\Reservation;
 use App\Book;
 use App\BookLikes;
 
 Config(['auth.defaults.guard' => 'web']);
 
-class StudentsController extends Controller
+class StudentController extends Controller
 {
     
    
@@ -20,6 +19,8 @@ class StudentsController extends Controller
      public function book_reservation($id){
            
         $book = Book::with('reservation')->findOrFail($id);
+
+
 
 
         if($book->available == 'yes'){
@@ -42,7 +43,7 @@ class StudentsController extends Controller
 
                $book = Book::with('reservation')->find($id);
 
-              if(!empty($book)){
+          if(!empty($book)){
 
                if($book->available == 'yes'){
 

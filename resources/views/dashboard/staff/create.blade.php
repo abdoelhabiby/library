@@ -65,7 +65,8 @@
   <?php
       $category = ['create_category','read_category','update_category','delete_category'];
       $book = ['create_book','read_book','update_book','delete_book'];
-      $reservation = ["read_reservation","update_reservation","delete_reservation"]
+      $reservation = ["read_reservation","update_reservation","delete_reservation"];
+      $student = ["create_students","read_students","update_students","delete_students"];
 
   ?>  
 
@@ -99,7 +100,7 @@
   <div class="tab-pane fade show active" id="categories" role="tabpanel" aria-labelledby="categories-tab">
     <br>
   @foreach($category as $categories)  
-    <label class="checkbox-inline col-2">
+    <label class="checkbox-inline col-sm-2">
       <input type="checkbox" value="{{$categories}}" name="permission[]"> {{ trans('dashb.'.$categories) }}
     </label>
   @endforeach
@@ -109,7 +110,7 @@
   <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">
     <br>
    @foreach($book as $books)  
-    <label class="checkbox-inline col-2">
+    <label class="checkbox-inline col-sm-2">
       <input type="checkbox" value="{{$books}}" name="permission[]"> {{ trans('dashb.'.$books) }}
     </label>
   @endforeach
@@ -118,17 +119,20 @@
 
  <div class="tab-pane fade" id="students" role="tabpanel" aria-labelledby="students-tab">
     <br>
+   @foreach($student as $students)  
 
-    <label class="checkbox-inline col-2">
-      <input type="checkbox" value="read_students" name="permission[]"> {{ trans('dashb.read_students') }}
+    <label class="checkbox-inline col-sm-2">
+      <input type="checkbox" value="{{$students}}" name="permission[]"> {{ trans('dashb.'.$students) }}
     </label>
+   @endforeach
+
   </div>
 
 
  <div class="tab-pane fade" id="reservations" role="tabpanel" aria-labelledby="reservations-tab">
     <br>
    @foreach($reservation as $reservations)  
-    <label class="checkbox-inline col-2">
+    <label class="checkbox-inline col-sm-2">
       <input type="checkbox" value="{{$reservations}}" name="permission[]"> {{ trans('dashb.'.$reservations) }}
     </label>
   @endforeach

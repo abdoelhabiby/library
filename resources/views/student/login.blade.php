@@ -256,7 +256,7 @@
             
             <form class="form" action="{{route('welcome.loginSubmit')}}" method="post">
                 @csrf()
-                <input name="email" type="email" placeholder="E-mail" required>
+                <input name="student_id" type="text" placeholder="username" required>
                 <input name="password" type="password" placeholder="Password" required>
                 <button type="submit" id="login-button">Login</button>
             </form>

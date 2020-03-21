@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\User;
+use App\Student;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class UsersDataTable extends DataTable
+class StudentsDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -20,7 +20,10 @@ class UsersDataTable extends DataTable
     public function dataTable($query)
     {
         return datatables()
-            ->eloquent($query);
+            ->eloquent($query)
+            ->addColumn('can', 'dashboard.students.button.can_reservation')
+            ->addColumn('edit', 'dashboard.students.button.edit')
+            ->addColumn('delete', 'dashboard.students.button.delete');
          
    }
 
@@ -32,7 +35,7 @@ class UsersDataTable extends DataTable
      */
     public function query()
         {
-            $admin = User::select();
+            $admin = Student::select();
 
             return $this->applyScopes($admin);
         }
@@ -69,11 +72,28 @@ class UsersDataTable extends DataTable
     {
         return [
 
+
+
+
             Column::make('id')->title("#"),
-            Column::make('name')->title(trans('dashb.name')),
-            Column::make('email')->title(trans('dashb.email')),
-            Column::make('created_at')->title(trans('dashb.tb_created')),
-            Column::make('updated_at')->title(trans('dashb.tb_updated')),
+            Column::make('full_name')->title(trans('dashb.name')),
+            Column::make('student_id')->title(trans('dashb.student_id')),
+            Column::make('level')->title(trans('dashb.level')),
+            Column::computed('can')
+                  ->title(trans('dashb.can_reservation'))
+                  ->width(120),
+            Column::computed('edit')
+                  ->title(trans('dashb.tb_edit'))
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::computed('delete')
+                  ->title(trans('dashb.tb_delete'))
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
  
         ];
     }

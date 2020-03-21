@@ -20,14 +20,15 @@ Route::group(['middleware' => 'auth'],function(){
 
 
 
-     Route::get('/book/{id}',"StudentsController@book_reservation")->name('book_reservation');
+     Route::get('/book/{id}',"StudentController@book_reservation")->name('book_reservation');
 
-     Route::put("book/addlike/{book_id}","StudentsController@addLike")->where('book_id', '[0-9]+');
-     Route::put("book/dislike/{book_id}","StudentsController@disLike")->where('book_id', '[0-9]+');
+     Route::put("book/addlike/{book_id}","StudentController@addLike")->where('book_id', '[0-9]+');
+     Route::put("book/dislike/{book_id}","StudentController@disLike")->where('book_id', '[0-9]+');
 
-     Route::post('/reservation_submit/{id}',"StudentsController@reservation_submit")->name('reservation_submit');
-     Route::post('/reservation_cancel/{id}',"StudentsController@reservation_cancel")->name('reservation_cancel');
-     Route::get('/student/books',"StudentsController@student_books")->name('student_books');
+     Route::post('/reservation_submit/{id}',"StudentController@reservation_submit")->name('reservation_submit');
+     Route::post('/reservation_cancel/{id}',"StudentController@reservation_cancel")->name('reservation_cancel');
+     
+     Route::get('/student/books',"StudentController@student_books")->name('student_books');
 
 
      Route::get('/logout',"StudentAcountController@logout")->name('welcome.logout');

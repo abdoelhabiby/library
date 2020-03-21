@@ -95,7 +95,7 @@
   <div class="tab-pane fade show active" id="admin" role="tabpanel" aria-labelledby="admin-tab">
     <br>
   @foreach($permission as $permissions)  
-    <label class="checkbox-inline col-2">
+    <label class="checkbox-inline col-sm-2">
       <input type="checkbox" value="{{$permissions}}" name="permission[]" {{$admin->hasPermissionTo($permissions) ? 'checked' : ''}}> {{ trans('dashb.'.$permissions) }}
     </label>
   @endforeach
@@ -105,7 +105,7 @@
     <div class="tab-pane fade" id="staff" role="tabpanel" aria-labelledby="staff-tab">
       <br>
      @foreach($staff as $Staff)  
-      <label class="checkbox-inline col-2">
+      <label class="checkbox-inline col-sm-2">
         <input type="checkbox" value="{{$Staff}}" name="permission[]"{{$admin->hasPermissionTo($Staff) ? 'checked' : ''}}> {{ trans('dashb.'.$Staff) }}
       </label>
     @endforeach

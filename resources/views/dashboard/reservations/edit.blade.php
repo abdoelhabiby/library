@@ -19,28 +19,27 @@
        {!! Form::open(['url' => route('reservations.update',$reservation->id),"files" => true]) !!}
        @method('PUT')
 <!-- ---------------------------------------------------------------------------------------- -->
- <div class="form-group row">
+ <div class="form-group ">
 
-       {!! Form::label(null, trans('dashb.name'). " : ", ['class' => 'awesome col-1']) !!} 
+       {!! Form::label(null, trans('dashb.name'). " : ", ['class' => 'awesome ']) !!} 
 
-       {!! Form::label(null, $reservation->user->name , ['class' => 'awesome col-5']) !!} 
+       {!! Form::label(null, $reservation->student->full_name , ['class' => 'awesome ']) !!} 
+</div>
 
-       {!! Form::label(null, trans('dashb.book'). " : ", ['class' => 'awesome col-1']) !!} 
+<div class="form-group">
+       {!! Form::label(null, trans('dashb.book'). " : ", ['class' => 'awesome ']) !!} 
 
-       {!! Form::label(null, $reservation->book->title , ['class' => 'awesome col-5']) !!} 
+       {!! Form::label(null, $reservation->book->title , ['class' => 'awesome ']) !!} 
 
 
  </div>
 <!-- ---------------------------------------------------------------------------------------- --> 
- <div class="form-group row">
+ <div class="form-group ">
 
-       {!! Form::label(null, trans('dashb.like'). " : ", ['class' => 'awesome col-1']) !!} 
 
-       <label class="awesome col-5">{{$reservation->like}}</label>
+       {!! Form::label(null, trans('dashb.evaluation'). " : ", ['class' => 'awesome ']) !!} 
 
-       {!! Form::label(null, trans('dashb.evaluation'). " : ", ['class' => 'awesome col-1']) !!} 
-
-       {!! Form::label(null, $reservation->evaluation . ' '. trans('dashb.fromF') , ['class' => 'awesome col-5']) !!} 
+       {!! Form::label(null, $reservation->evaluation . ' '. trans('dashb.fromF') , ['class' => 'awesome ']) !!} 
 
  </div>
 <!-- ---------------------------------------------------------------------------------------- --> 

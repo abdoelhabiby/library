@@ -18,9 +18,9 @@ class Reservation extends Model
 
 
 
-   public function user(){
+   public function student(){
 
-    	return $this->belongsTo(User::class,'student_id','id');
+    	return $this->belongsTo(Student::class,'student_id','id');
     } 
 
   public function book(){

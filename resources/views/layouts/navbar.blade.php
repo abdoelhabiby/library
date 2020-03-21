@@ -24,10 +24,9 @@
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                @foreach(categories() as $category) 
 
-                                @if($category->books()->count() > 0)    
                                     <a class="dropdown-item" href="{{route('categoryId',$category->id)}}">{{$category->name == 'undefined‏' ? 'عام' : $category->name}}
                                     </a>
-                                 @endif   
+
                                 @endforeach    
 
                                 </div>
@@ -46,7 +45,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
-                                    {{auth()->user()->name}}
+                                    {{auth()->user()->full_name}}
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{route('student_books')}}">كتبي</a>
