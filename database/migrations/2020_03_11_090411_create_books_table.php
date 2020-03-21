@@ -21,7 +21,6 @@ class CreateBooksTable extends Migration
             $table->unsignedBigInteger('category_id')->default(1);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->enum('available',['yes','no'])->default('yes');
-            $table->boolean('like')->default(1);
             $table->timestamps();
         });
     }

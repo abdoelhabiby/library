@@ -16,7 +16,6 @@ class Book extends Model
 			"description",
 			"photo",
             "available",
-            "like",
 
     ];
 
