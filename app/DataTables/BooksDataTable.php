@@ -24,12 +24,8 @@ class BooksDataTable extends DataTable
             ->addColumn('edit', 'dashboard.books.button.edit')
             ->addColumn('delete', 'dashboard.books.button.delete');    }
 
-    /**
-     * Get query source of dataTable.
-     *
-     * @param \Category $model
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
+
+//------------------------------------------------------------------
     public function query()
         {
             $admin = Book::with('category')->select();
@@ -37,11 +33,7 @@ class BooksDataTable extends DataTable
             return $this->applyScopes($admin);
         }
 
-    /**
-     * Optional method if you want to use html builder.
-     *
-     * @return \Yajra\DataTables\Html\Builder
-     */
+//------------------------------------------------------------------
     public function html()
     {
         return $this->builder()

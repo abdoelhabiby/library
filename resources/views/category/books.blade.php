@@ -11,6 +11,7 @@
 
 
         <article class="books-section">
+
             <div class="container">
                 <div>
                     <h4 style="float:right;">{{$category->name == 'undefined‏' ? 'عام' : $category->name }}</h4>
@@ -29,9 +30,11 @@
                                 <img src="{{asset('storage/'.$books->photo)}}" alt="books" />
                             </div>
                             <div class="book-info">
+
                                 <span class="category">
                                 	{{$category->name == 'undefined‏' ? 'عام' : $category->name }}
                                 </span>
+
                                 <h3 class="book-name">{{$books->title}}</h3>
                                 
 
@@ -40,7 +43,7 @@
                                        <span class="status status-yas p-2">
                                            متاح
                                        </span>
-                                       <a href="{{route('book_reservation',$books->id)}}" class="status status-yas p-2" style="margin-right: 5px;">
+                                  <a href="{{route('book_reservation',$books->id)}}" class="status status-yas p-2" style="margin-right: 5px;">
                                            حجز
                                        </a>
 
