@@ -64,8 +64,10 @@
                                 @guest
                                 
                                 @else    
-                                 <i class="heart-emptyicon- love" id="addLike" data-id="{{$books->id}}"></i>
-                               @endguest
+                                <i class=" {{!empty(checkLike($books->id)) ? 'fa fa-heart' :'heart-emptyicon-'}} love" id="addLike" data-id="{{$books->id}}">
+                       
+                                 </i>      
+                                 @endguest
                                 </div>
 
                             </div>
