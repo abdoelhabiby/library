@@ -59,19 +59,17 @@
         <script src="{{asset('qeno')}}/js/main.js"></script>
         
         <script type="text/javascript">
-            $(function(){
+       $(function(){
                  
-                 // $(document).click("#addLike",function(){
 
         $('body').on('click','#addLike',function(e){
                    
                    var book_id = $(this).data('id');
                 
-                if($(this).hasClass("heart-emptyicon-")){
-                         
+                if($(this).hasClass("heart-emptyicon-")){       
                          
                               $(this).removeClass('heart-emptyicon-');
-                              $(this).addClass('fa fa-heart');
+                              $(this).addClass('fa fa-heart'); 
 
                        $.ajax({
 
@@ -79,17 +77,15 @@
                           method:"put",
                           data:{_token:"{{csrf_token()}}"},
                           success:function(data){
-                              
-
-
+                                
+                                console.log(data);
+               
                           },
                           error:function(data){
 
                              $(this).addClass('heart-emptyicon-');
                              $(this).removeClass('fa fa-heart');
                           }
-
-
 
                        });
 
@@ -98,20 +94,21 @@
                    $(this).addClass('heart-emptyicon-');
                    $(this).removeClass('fa fa-heart');
 
+                  $.ajax({
+
+                          url:"/book/dislike/"+book_id,
+                          method:"put",
+                          data:{_token:"{{csrf_token()}}"},
+                          success:function(data){
+                               
+                               console.log(data);
+                          }
+
+                       });
 
                 }
 
-
-                   
-
-
-
                  });
-
-
-      
-             
-
             });
         </script> 
 

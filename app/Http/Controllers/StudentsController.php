@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Category;
 use App\Reservation;
 use App\Book;
+use App\BookLikes;
 
 Config(['auth.defaults.guard' => 'web']);
 
@@ -126,9 +127,42 @@ class StudentsController extends Controller
              
              if(!empty($book)){
 
-               $likes = $book->like + 1;
+              \App\BookLikes::create(['book_id' => $book_id,'student_id' => auth()->user()->id]);
 
-              $book->update(['like' => $likes]);
+               return response(['status' => 'ok'],200);
+
+             }else{
+              return response(['status' => 'error'],304);
+             } 
+
+        
+           return response(['status' => 'error'],304);
+
+
+
+
+          }else{
+
+            return response(['status' => 'error'],304);
+          }
+
+
+
+       }
+//=============================================================================
+
+
+  public function disLike($book_id){
+       
+       if(request()->ajax()){
+              
+        $bookLikes = BookLikes::where('book_id',$book_id)->where('student_id', auth()->user()->id)->first();
+             
+             if(!empty($bookLikes)){
+
+               $bookLikes->delete();
+
+              return response(['status' => 'ok'],200);
 
 
 

@@ -27,21 +27,22 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('checkReservation')->everyMinute();
-      // $schedule->call(function () {
 
-      //    $reservation =  \DB::table('reservations')->where('status','pending')->where("created_at","<",Carbon::now()->subHours(72))->get();
+      
+      $schedule->call(function () {
 
-      //     if(!empty($reservation)){
+         $reservation =  \DB::table('reservations')->where('status','pending')->where("created_at","<",Carbon::now()->subHours(72))->get();
 
-      //        foreach ($reservation as $reservations) {
+          if(!empty($reservation)){
 
-      //            \DB::table('reservations')->where('id',$reservations->id)->update(['status' => 'refused']);
+             foreach ($reservation as $reservations) {
 
-      //        }
-      //     }
+                 \DB::table('reservations')->where('id',$reservations->id)->update(['status' => 'refused']);
 
-      //   })->daily();
+             }
+          }
+
+        })->everyMinute();
     }
 
     /**

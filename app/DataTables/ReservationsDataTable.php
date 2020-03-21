@@ -74,7 +74,7 @@ class ReservationsDataTable extends DataTable
             Column::make('user.name')->title(trans('dashb.name')),
             Column::make('book.title')->title(trans('dashb.title')),
             Column::make('evaluation')->title(trans('dashb.evaluation')),
-            Column::make('updated_at')->title(trans('dashb.tb_updated')),
+            Column::make('created_at')->title(trans('dashb.tb_updated')),
             Column::computed('edit')
                   ->title(trans('dashb.tb_edit'))
                   ->exportable(false)

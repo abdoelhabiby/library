@@ -74,5 +74,11 @@ function categories(){
 }
 
 
+ function checkLike($book_id){
+
+     return \App\BookLikes::where('book_id',$book_id)->where('student_id', auth()->user()->id)->first();
+ }
+
+
 
 ?>

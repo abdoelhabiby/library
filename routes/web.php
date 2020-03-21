@@ -21,8 +21,9 @@ Route::group(['middleware' => 'auth'],function(){
 
 
      Route::get('/book/{id}',"StudentsController@book_reservation")->name('book_reservation');
-     
-     Route::put("book/addlike/{book_id}","StudentsController@addLike")->where('book_id', '[0-9]+');;
+
+     Route::put("book/addlike/{book_id}","StudentsController@addLike")->where('book_id', '[0-9]+');
+     Route::put("book/dislike/{book_id}","StudentsController@disLike")->where('book_id', '[0-9]+');
 
      Route::post('/reservation_submit/{id}',"StudentsController@reservation_submit")->name('reservation_submit');
      Route::post('/reservation_cancel/{id}',"StudentsController@reservation_cancel")->name('reservation_cancel');
