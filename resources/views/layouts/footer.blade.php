@@ -78,7 +78,8 @@
                           data:{_token:"{{csrf_token()}}"},
                           success:function(data){
                                 
-                                console.log(data);
+                              $(this).removeClass('heart-emptyicon-');
+                              $(this).addClass('fa fa-heart'); 
                
                           },
                           error:function(data){

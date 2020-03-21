@@ -31,4 +31,9 @@ class Book extends Model
         return $this->hasMany(Reservation::class);
 
     }
+
+    public function bookLikes(){
+        return $this->hasMany(BookLikes::class,'book_id','id');
+
+    }
 }

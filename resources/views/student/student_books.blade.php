@@ -103,7 +103,10 @@
                                 </div>
                                 <div class="booking">
                     
-                            <i class=" {{!empty(checkLike($reservations->book->id)) ? 'fa fa-heart' :'heart-emptyicon-'}} love" id="addLike" data-id="{{$reservations->book->id}}"></i>
+                                 <i class=" {{!empty(checkLike($reservations->book->id)) ? 'fa fa-heart' :'heart-emptyicon-'}} love" id="addLike" data-id="{{$reservations->book->id}}">
+                       
+                                 </i>
+                                
                                 </div>
 
                             </div>
