@@ -52,7 +52,7 @@ class BooksController extends Controller
       
          $validate = $request->validate([
               
-              "title" => 'required|min:3|string|unique:books',
+              "title" => 'required|string|unique:books',
               "category_id" => 'sometimes|nullable|numeric',
               "photo" => checkImage(),
               "description" => 'required|min:30|string',
@@ -109,7 +109,7 @@ class BooksController extends Controller
 
        $validate = $request->validate([
               
-              "title" => 'required|min:3|string|unique:books,title,'.$book->id.'id',
+              "title" => 'required|string|unique:books,title,'.$book->id.'id',
               "category_id" => 'sometimes|nullable|numeric',
               "photo" => checkImage(),
               "description" => 'required|min:30|string',

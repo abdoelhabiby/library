@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,7 +23,7 @@ Route::group(['middleware' => 'auth'],function(){
 
      Route::get('/book/{id}',"StudentController@book_reservation")->name('book_reservation');
 
-     Route::put("book/addlike/{book_id}","StudentController@addLike")->where('book_id', '[0-9]+');
+     Route::post("book/addlike/{book_id}","StudentController@addLike")->where('book_id', '[0-9]+');
      Route::put("book/dislike/{book_id}","StudentController@disLike")->where('book_id', '[0-9]+');
 
      Route::post('/reservation_submit/{id}',"StudentController@reservation_submit")->name('reservation_submit');

@@ -91,6 +91,7 @@
 
                 {{ $book->appends(request()->query())->links() }}
 
+
             </div>
          @else
          <center><h4>عفوا لا يوجد كتب حاليا في هذا القسم</h4></center>

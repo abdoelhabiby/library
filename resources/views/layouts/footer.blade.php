@@ -74,7 +74,7 @@
                        $.ajax({
 
                           url:"/book/addlike/"+book_id,
-                          method:"put",
+                          method:"post",
                           data:{_token:"{{csrf_token()}}"},
                           success:function(data){
                                 

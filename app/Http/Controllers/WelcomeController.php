@@ -26,7 +26,8 @@ class WelcomeController extends Controller
        public function category($id){
 
        	    $category = Category::where('id',$id)->first();
-            $book = $category->books()->paginate(6);
+
+            $book = $category->books()->orderBy('id','desc')->paginate(6);
 
        	    return view('category.books',compact(['category','book']));
        }
