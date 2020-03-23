@@ -63,7 +63,7 @@
                         </ul>
 
                         <form class="form-inline my-2 my-lg-0" action="{{route('search_book')}}">
-                            <input class="form-control ml-sm-2" type="search" placeholder="بتـدور علي اية؟" aria-label="Search" name="book">
+                            <input class="form-control ml-sm-2" type="search" placeholder="بتـدور علي اية؟" aria-label="Search" name="book" value="{{request()->book}}">
                             <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">أبـحــث</button>
                         </form>
                     </div>
