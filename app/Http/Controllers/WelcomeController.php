@@ -17,6 +17,7 @@ class WelcomeController extends Controller
      public function index(){
 
         $book = Book::orderBy('id','desc')->take(6)->get();
+
         $category = categories();
        	return view('welcome',compact('book'));
      }
@@ -27,9 +28,15 @@ class WelcomeController extends Controller
 
        	    $category = Category::where('id',$id)->first();
 
+           if(!empty($category)){
+
             $book = $category->books()->orderBy('id','desc')->paginate(6);
 
        	    return view('category.books',compact(['category','book']));
+          }else{
+
+              abort(404);
+          }
        }
 
      /*---------------------------------------------------------------------*/
