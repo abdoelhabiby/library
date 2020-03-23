@@ -25,12 +25,15 @@ class Book extends Model
         return date('d-m-Y h:m:s', strtotime($value));
     }
 
- 
+
+
 
   public function getUpdatedAtAttribute($value)
   
     {
-        return date('d-m-Y h:m:s', strtotime($value));
+        return date('d-m-Y h:i:s', strtotime($value));
+
+
 
      }   
     

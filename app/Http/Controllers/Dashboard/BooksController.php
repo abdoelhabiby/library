@@ -27,6 +27,7 @@ class BooksController extends Controller
 
     public function index(BooksDataTable $dataTable)
     {
+
     
         return $dataTable->render('dashboard.books.index');
 
