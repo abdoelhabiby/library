@@ -25,6 +25,8 @@ class ReservationsController extends Controller
 
     public function index(ReservationsDataTable $dataTable)
     {
+
+
     
         return $dataTable->render('dashboard.reservations.index');
 
