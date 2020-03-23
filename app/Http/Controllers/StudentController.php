@@ -77,7 +77,7 @@ class StudentController extends Controller
 
     public function student_books(){
 
-      $reservation = Reservation::where('student_id' ,auth()->user()->id)->get();
+      $reservation = Reservation::where('student_id' ,auth()->user()->id)->where('status' ,'!=','refused')->get();
 
 
        

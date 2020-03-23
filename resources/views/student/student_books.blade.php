@@ -41,7 +41,9 @@
 
 
 
-    @if($reservation->count() > 0)
+@if($reservation->count() > 0)
+
+
     
  <div class="alert alert-warning alert-dismissible fade show text-center mb-5" role="alert">
   <strong>يجب ان يكون استلام الكتاب في مده خلال 72 ساعه والا سيتم الغاء الحجز</strong> 
@@ -50,6 +52,8 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
+
                 <div class="row">
 
          @foreach($reservation as $reservations)
@@ -78,16 +82,12 @@
                                        	  تمت قرأته
                                        </button>
 
-                                    @elseif($reservations->status == 'active') 
+                                    @else($reservations->status == 'active') 
                                      <button class="btn btn-success">
                                         لديك
                                        </button>  
 
-                                     @else
-                                     
-                                         <button class="btn btn-danger">
-                                        تم رفضه
-                                       </button>  
+    
    
                                  @endif
                
