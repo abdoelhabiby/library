@@ -75,7 +75,9 @@ class StudentsDataTable extends DataTable
 
 
 
-            Column::make('id')->title("#"),
+            Column::make('id')->title("#")
+                              ->exportable(false)
+                              ->printable(false),
             Column::make('full_name')->title(trans('dashb.name')),
             Column::make('student_id')->title(trans('dashb.student_id')),
             Column::make('level')->title(trans('dashb.level')),

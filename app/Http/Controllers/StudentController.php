@@ -47,9 +47,9 @@ class StudentController extends Controller
 
                if($book->available == 'yes'){
 
-         $reservation = Reservation::create(['student_id' => auth()->user()->id,'book_id' => $id]);
+               $reservation = Reservation::create(['student_id' => auth()->user()->id,'book_id' => $id]);
           
-          $book->update(['available' => 'no']);
+               $book->update(['available' => 'no']);
 
 
               return response(["status" => 200]);        

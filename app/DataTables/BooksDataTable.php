@@ -61,7 +61,9 @@ class BooksDataTable extends DataTable
     {
         return [
 
-            Column::make('id')->title("#"),
+            Column::make('id')->title("#")
+                  ->exportable(false)
+                  ->printable(false),
             Column::make('title')->title(trans('dashb.title')),
             Column::make('category.name')->title(trans('dashb.category')),
             Column::make('available')->title(trans('dashb.available')),

@@ -69,7 +69,9 @@ class CategoriesDataTable extends DataTable
     {
         return [
 
-            Column::make('id')->title("#"),
+            Column::make('id')->title("#")         
+                              ->exportable(false)
+                              ->printable(false),
             Column::make('name')->title(trans('dashb.name')),
             // Column::make('description')->title(trans('dashb.description')),
             Column::make('created_at')->title(trans('dashb.tb_created')),

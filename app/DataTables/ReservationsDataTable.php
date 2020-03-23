@@ -69,7 +69,9 @@ class ReservationsDataTable extends DataTable
     {
         return [
 
-            Column::make('id')->title("#"),
+            Column::make('id')->title("#")
+                              ->exportable(false)
+                              ->printable(false),
             Column::make('status')->title(trans('dashb.status')),
             Column::make('student.full_name')->title(trans('dashb.name')),
             Column::make('book.title')->title(trans('dashb.title')),

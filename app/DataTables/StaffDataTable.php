@@ -71,7 +71,9 @@ class StaffDataTable extends DataTable
     {
         return [
 
-            Column::make('id')->title("#"),
+            Column::make('id')->title("#")
+                              ->exportable(false)
+                              ->printable(false),
             Column::make('name')->title(trans('dashb.name')),
             Column::make('email')->title(trans('dashb.email')),
             Column::make('phone')->title(trans('dashb.phone')),
