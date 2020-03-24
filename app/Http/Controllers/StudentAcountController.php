@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-Config(['auth.defaults.guard' => 'web']);
+ Config(['auth.defaults.guard' => 'web']);
+
 
 class StudentAcountController extends Controller
 {
@@ -13,6 +14,8 @@ class StudentAcountController extends Controller
     public function login(){
 
         return view('student.login');
+
+
     }
 
 /*----------------------------------------------------*/

@@ -4,9 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['prefix' => 'eldashboard','middleware' => 'authAdmin:admin'],function(){
+Route::group(['prefix' => 'eldashboard'],function(){
 
-    Config(['auth.defaults.guard' => 'admin']);
+   // Config(['auth.defaults.guard' => 'admin']);
+
+	Config::set('auth.defaults.guard','admin');
+
+
+Route::group(['middleware' => 'authAdmin:admin'],function(){
+
+
+
+
 
 
 	Route::group(['namespace' => 'Dashboard'],function(){
@@ -34,16 +43,17 @@ Route::group(['prefix' => 'eldashboard','middleware' => 'authAdmin:admin'],funct
     });
 
 
-  Route::get('eldashboard/logout',"Dashboard\AdminAcountController@logout")->name('admin.logout');
-
+  Route::get('logout',"Dashboard\AdminAcountController@logout")->name('admin.logout');
 
 });
 
 
 Route::group(['middleware' => 'redirectAdmin:admin'],function(){
-	  Route::get('eldashboard/login',"Dashboard\AdminAcountController@login")->name('admin.login');
+	  Route::get('login',"Dashboard\AdminAcountController@login")->name('admin.login');
 
 	});
 
-Route::POST('eldashboard/login',"Dashboard\AdminAcountController@loginSubmit")->name('admin.loginSubmit');
+Route::POST('login',"Dashboard\AdminAcountController@loginSubmit")->name('admin.loginSubmit');
+
+});
 

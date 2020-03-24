@@ -4,7 +4,6 @@
 use Illuminate\Support\Facades\Route;
 
 
-Config(['auth.defaults.guard' => 'web']);
 
 
  Route::get('/',"WelcomeController@index")->name('welcome');
@@ -33,6 +32,8 @@ Route::group(['middleware' => 'auth'],function(){
 
 
      Route::get('/logout',"StudentAcountController@logout")->name('welcome.logout');
+
+     Route::get('/profile',"StudentController@profile")->name('welcome.profile');
 
 
 

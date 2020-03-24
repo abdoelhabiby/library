@@ -17,7 +17,7 @@
                                   <p class="text-danger  float-right text-uppercase">{{$errors->first('email')}}</p>
                                @endif
                          <textarea name="message"  cols="30" rows="4" placeholder="رســالتك!">
-                                  {{old('message')}}
+                                 
                                 </textarea>
                                 @if($errors->has('message'))
                                   <p class="text-danger float-right  text-uppercase">{{$errors->first('message')}}</p>
