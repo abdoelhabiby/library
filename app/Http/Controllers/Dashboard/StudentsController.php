@@ -51,7 +51,7 @@ class StudentsController extends Controller
         $validate = request()->validate([
 
            "full_name" => "required|string|unique:students",
-           "student_id" => "required|integer|unique:students",
+           "student_id" => "required|numeric|unique:students",
            "level" => "required|in:1,2,3,4",
            "password" => 'required|confirmed|min:6|string',
            "can_reservation" => "required|in:yes,no",
@@ -88,7 +88,7 @@ class StudentsController extends Controller
         $validate = request()->validate([
 
            "full_name" => "required|string|unique:students,full_name,".$student->id."id",
-           "student_id" => "required|integer|unique:students,student_id,".$student->id."id",
+           "student_id" => "required|numeric|unique:students,student_id,".$student->id."id",
            "level" => "required|in:1,2,3,4",
            "can_reservation" => "required|in:yes,no",
 
