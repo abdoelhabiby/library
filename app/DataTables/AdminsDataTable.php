@@ -22,7 +22,8 @@ class AdminsDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('edit', 'dashboard.admins.button.edit')
-            ->addColumn('delete', 'dashboard.admins.button.delete');    }
+            ->addColumn('delete', 'dashboard.admins.button.delete');  
+  }
 
     /**
      * Get query source of dataTable.

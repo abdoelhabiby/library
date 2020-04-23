@@ -48,8 +48,6 @@ class makeSuperAdmin extends Seeder
                 'create_students',
                 'delete_students',
                 'update_students',
-                "edit_setting"
-
                 ];
 
 $permission_admin = [
@@ -103,8 +101,9 @@ $permission_admin = [
           ]); 
 
 
+//--------------------------------------------------
 
-
+   \App\Category::create(['name' => 'undefined‏']); 
 
 
 

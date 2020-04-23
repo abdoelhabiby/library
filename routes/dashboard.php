@@ -32,12 +32,6 @@ Route::group(['middleware' => 'authAdmin:admin'],function(){
 		Route::resource('students','StudentsController')->except('show');
 
 
-		 Route::group(['middleware' => 'permission:edit_setting'],function(){
-
-				Route::get('settings','SettingsController@edit')->name('setting.edit');
-				Route::PUT('settings','SettingsController@update')->name('setting.update');
-
-		 });
 
 
     });

@@ -23,17 +23,7 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>{{trans('dashb.dashboard')}}</span></a>
       </li> 
-@if(admin()->hasPermissionTo('edit_setting'))
 
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item {{ request()->segment(2) == 'settings' ? 'active' : ''}}">
-        <a class="nav-link" href="{{route('setting.edit')}}">
-          <i class="fas fa-fw fa-cogs"></i>
-          <span>{{trans('dashb.settings')}}</span></a>
-      </li>
-@endif
 
 @if(admin()->hasPermissionTo('read_admin'))
       <hr class="sidebar-divider my-0">
