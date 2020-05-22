@@ -102,7 +102,7 @@
                           data:{_token:"{{csrf_token()}}"},
                           success:function(data){
                                
-                               console.log(data);
+                              // console.log(data);
                           }
 
                        });

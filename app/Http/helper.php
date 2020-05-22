@@ -31,7 +31,7 @@
 
 function url_dash($url){
 
-    return url('eldashboard/'.$url);
+    return url('admins/'.$url);
 }
 
 

@@ -253,6 +253,13 @@
     <div class="wrapper">
         <div class="container">
             <h1>Welcome</h1>
+           <?php 
+           if(session('failed')){
+
+              echo  "<div class='display-error'><p style='font-size:20px;color:red'>" . session("failed") ."</p></div>";
+           }
+
+           ?>
             
             <form class="form" action="{{route('welcome.loginSubmit')}}" method="post">
                 @csrf()

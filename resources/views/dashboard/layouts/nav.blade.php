@@ -11,14 +11,14 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Ay zeft<sup></sup></div>
+        <div class="sidebar-brand-text mx-3">Alzaribuh<sup></sup></div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item {{ request()->segment(1) == 'eldashboard' ? 'active' : ''}}">
+      <li class="nav-item {{ request()->segment(1) == 'admins' ? 'active' : ''}}">
         <a class="nav-link" href="{{route('Dashboard')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>{{trans('dashb.dashboard')}}</span></a>
