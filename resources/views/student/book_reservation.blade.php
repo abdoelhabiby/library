@@ -77,8 +77,8 @@
                                 <img src="{{asset('storage/'.$book->photo)}}" alt="books" />
                             </div>
                             <div class="book-info">
-                                <span class="category">قسم تاريخ</span>
-                                <h3 class="book-name">كتاب حلو بس مجهد</h3>
+                                <span class="category">                                    {{$book->category->name == 'undefined‏' ? 'عام' : $book->category->name }}</span>
+                                <h3 class="book-name">{{$book->title}}</h3>
                             </div>
                             <div class="book-details">
                                 <div class="stars">
