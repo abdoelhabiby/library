@@ -69,7 +69,7 @@ function admin(){
 
 function categories(){
 
-            return \App\Category::all();
+            return \App\Category::where("id","!=",1)->get();
 
 }
 
