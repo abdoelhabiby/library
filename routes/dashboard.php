@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['prefix' => 'admins'],function(){
+Route::group(['prefix' => 'admin'],function(){
 
    // Config(['auth.defaults.guard' => 'admin']);
 
