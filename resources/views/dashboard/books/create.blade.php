@@ -52,7 +52,7 @@
 
  <div class="form-group">
        {!! Form::label('available', trans('dashb.available'), ['class' => 'awesome']) !!} 
-       {!! Form::select("available",['yes' => trans('dashb.yes'),'no' => trans('dashb.no')],old('available'),['class' => 'form-control']) !!}
+       {!! Form::select("available",[1 => trans('dashb.yes'),0 => trans('dashb.no')],old('available'),['class' => 'form-control']) !!}
 
  </div>   
 

@@ -20,7 +20,7 @@ class CreateBooksTable extends Migration
             $table->string("photo")->default('books/default.jpg');
             $table->unsignedBigInteger('category_id')->default(1);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-            $table->enum('available',['yes','no'])->default('yes');
+            $table->boolean('available')->default(1);
             $table->timestamps();
         });
     }

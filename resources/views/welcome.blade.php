@@ -110,7 +110,8 @@
                                 <h3 class="book-name">{{$books->title}}</h3>
                                 
 
-                                 @if($books->available == 'yes') 
+                                 @if($books->available)
+                                   @if(auth()->user() && auth()->user()->can_reservation) 
                                      <div class="booking">
                                        <span class="status status-yas">
                                            متاح
@@ -120,6 +121,11 @@
                                        </a>
 
                                     </div>
+                                    @else
+                                         <span class="status status-no">
+                                            غير متاح
+                                          </span> 
+                                    @endif
 
                                  @else
                                   

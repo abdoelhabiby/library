@@ -19,7 +19,7 @@ class CreateStudentsTable extends Migration
             $table->string('student_id')->unique();
             $table->string('password');
             $table->enum('level',[1,2,3,4]);
-            $table->enum('can_reservation',['yes','no'])->default('yes');
+            $table->boolean('can_reservation')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

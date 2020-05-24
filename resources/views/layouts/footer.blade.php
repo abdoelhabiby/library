@@ -16,9 +16,7 @@
                                @if($errors->has('email'))
                                   <p class="text-danger  float-right text-uppercase">{{$errors->first('email')}}</p>
                                @endif
-                         <textarea name="message"  cols="30" rows="4" placeholder="رســالتك!">
-                                 
-                                </textarea>
+                         <textarea name="message"  cols="30" rows="4" placeholder="رســالتك!"></textarea>
                                 @if($errors->has('message'))
                                   <p class="text-danger float-right  text-uppercase">{{$errors->first('message')}}</p>
                                @endif

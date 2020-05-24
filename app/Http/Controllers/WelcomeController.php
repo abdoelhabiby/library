@@ -45,9 +45,10 @@ class WelcomeController extends Controller
            
         $book = Book::with('reservation')->findOrFail($id);
 
-     	   if($book->available == 'yes'){
 
-     	   return view('book_reservation',compact(['book']));
+     	   if($book->available && auth()->user()){
+
+     	       return view('book_reservation',compact(['book']));
 
          	}else{
 
@@ -65,10 +66,10 @@ class WelcomeController extends Controller
 
               if(!empty($book)){
 
-        	   if($book->available == 'yes'){
+        	   if($book->available && auth()->user()){
 
                $reservation = Reservation::create(['student_id' => auth()->user()->id,'book_id' => $id]);
-               $book->update(['available' => 'no']);
+               $book->update(['available' => 0]);
         	     return response(["status" => 200,'content' => $reservation]);	   	   
 
         	   }else{

@@ -21,9 +21,10 @@ class StudentController extends Controller
         $book = Book::with('reservation')->findOrFail($id);
 
 
+          
 
 
-        if($book->available == 'yes'){
+        if($book->available && auth()->user()->can_reservation ){
 
 
             return view('student.book_reservation',compact(['book']));
@@ -31,7 +32,7 @@ class StudentController extends Controller
         }else{
 
 
-            return back();
+            return redirect(route('welcome'));
         }
 
      }
@@ -45,11 +46,11 @@ class StudentController extends Controller
 
           if(!empty($book)){
 
-               if($book->available == 'yes'){
+               if($book->available  && auth()->user()->can_reservation){
 
                $reservation = Reservation::create(['student_id' => auth()->user()->id,'book_id' => $id]);
           
-               $book->update(['available' => 'no']);
+               $book->update(['available' => 0]);
 
 
               return response(["status" => 200]);        
@@ -96,7 +97,7 @@ class StudentController extends Controller
           if(!empty($reservation )){
 
 
-           \App\Book::where('id',$reservation->book_id)->update(['available' => 'yes']);
+           \App\Book::where('id',$reservation->book_id)->update(['available' => 1]);
 
              $reservation->delete();
 
@@ -106,7 +107,7 @@ class StudentController extends Controller
 
           }else{
 
-             return back();
+             return redirect(route('welcome'));
        
 
           }
