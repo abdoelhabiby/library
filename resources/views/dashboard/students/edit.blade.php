@@ -63,7 +63,7 @@
 <!-- ---------------------------------------------------------------------------------------- -->
      <div class="form-group">
        {!! Form::label('can_reservation', trans('dashb.can_reservation'), ['class' => 'awesome']) !!} 
-       {!! Form::select("can_reservation",['yes' => trans('dashb.yes'),'no' => trans('dashb.no')],value($student->can_reservation),['class' => 'form-control']) !!}
+       {!! Form::select("can_reservation",['1' => trans('dashb.yes'),'0' => trans('dashb.no')],value($student->can_reservation),['class' => 'form-control']) !!}
          @if($errors->has('can_reservation'))
              <p class="text-danger text-uppercase">{{$errors->first('can_reservation')}}</p>
          @endif
